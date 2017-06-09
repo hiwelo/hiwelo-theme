@@ -19,7 +19,7 @@ const project = {
   name: 'Raccoon WordPress Theme', // project name for gulp-notify
   url: 'http://raccoon.local', // project dev url
   preprocessor: {
-    css: 'less', // choose 'less' or 'sass'
+    css: 'sass', // choose 'less' or 'sass'
     js: 'es2015', // choose 'es2015' or another installed babel preset
   },
   sync: {
@@ -67,9 +67,9 @@ const paths = {
     styles: {
       root: './styles/',
       less: './styles/styles.less',
-      lessFiles: './styles/*.less',
+      lessFiles: './styles/**/*.less',
       sass: './styles/styles.scss',
-      sassFiles: './styles/*.scss',
+      sassFiles: './styles/**/*.scss',
     },
     scripts: './scripts/*.js',
     images: './images/*.{png,jpg,jpeg,gif,svg}',
@@ -138,15 +138,33 @@ gulp.task('less', () => {
   return gulp.src(paths.src.styles.less)
     .pipe($.plumber(onError))
     .pipe($.less())
-    .pipe(gulp.dest(paths.dist.styles));
+    .pipe(gulp.dest(paths.dist.styles))
+    .pipe($.autoprefixer({
+      browsers: project.conf.autoprefixer,
+    }))
+    .pipe($.csso())
+    .pipe($.rename({
+      suffix: project.conf.suffix,
+    }))
+    .pipe(gulp.dest(paths.dist.styles))
+    .pipe(browserSync.stream());
 });
 
 // Sass task: sass compilation + (src -> dist)
 gulp.task('sass', () => {
   return gulp.src(paths.src.styles.sass)
     .pipe($.plumber(onError))
-    .pipe($.sass())
-    .pipe(gulp.dest(paths.dist.styles));
+    .pipe($.sass(project.conf.sass))
+    .pipe(gulp.dest(paths.dist.styles))
+    .pipe($.autoprefixer({
+      browsers: project.conf.autoprefixer,
+    }))
+    .pipe($.csso())
+    .pipe($.rename({
+      suffix: project.conf.suffix,
+    }))
+    .pipe(gulp.dest(paths.dist.styles))
+    .pipe(browserSync.stream());
 });
 
 // CSS task: autoprefixer + css optimizer + rename (.min)
@@ -259,9 +277,9 @@ gulp.task('watch', () => {
 
   // Less or Sass watch task
   if (project.preprocessor.css === 'less') {
-    gulp.watch(paths.src.styles.lessFiles, gulpSync.sync(['less', 'css']));
+    gulp.watch(paths.src.styles.lessFiles, gulpSync.sync(['less']));
   } else if (project.preprocessor.css === 'sass') {
-    gulp.watch(paths.src.styles.sassFiles, gulpSync.sync(['sass', 'css']));
+    gulp.watch(paths.src.styles.sassFiles, gulpSync.sync(['sass']));
   }
 
   // JS watch task
@@ -276,7 +294,7 @@ gulp.task('watch', () => {
  * Global tasks
  */
 
-gulp.task('build', gulpSync.sync([project.preprocessor.css, ['css', 'js', 'vendor', 'img', 'fonts']]));
+gulp.task('build', gulpSync.sync([project.preprocessor.css, ['js', 'vendor', 'img', 'fonts']]));
 gulp.task('work', gulpSync.sync(['build', 'watch']));
 gulp.task('prod', gulpSync.sync(['build', 'del-build']));
 gulp.task('test', ['jshint']);
