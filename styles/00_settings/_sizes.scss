@@ -1,0 +1,44 @@
+/**
+ * Hiwelo's project sizes
+ *
+ * Summary:
+ *   1. Generic sizes
+ */
+
+
+//
+// 1. Generic sizes
+
+$size-null:             0;
+$size-unit:             .1rem;
+$size-double:           .2rem;
+$size-triple:           .3rem;
+$size-tiny:             .5rem;
+$size-tiny-plus:        .8rem;
+$size-decimal:          1rem;
+$size-small:            1.5rem;
+$size-small-plus:       2rem;
+$size-medium:           2.5rem;
+$size-medium-plus:      3rem;
+$size-large:            3.5rem;
+$size-large-plus:       4rem;
+$size-xlarge:           4.5rem;
+$size-xlarge-plus:      5rem;
+$size-xxlarge:          5.5rem;
+$size-xxlarge-plus:     6rem;
+$size-xxxlarge:         6.5rem;
+$size-xxxlarge-plus:    7rem;
+
+
+//
+// 2. Padding sizes
+
+$padding-null:          $size-null;
+$padding-small:         $size-tiny-plus;
+$padding-medium:        $size-decimal;
+$padding-large:         $size-medium;
+
+$margin-null:           $size-null;
+$margin-small:          $size-tiny-plus;
+$margin-medium:         $size-decimal;
+$margin-large:          $size-medium;
