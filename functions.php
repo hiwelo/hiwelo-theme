@@ -13,6 +13,7 @@
 namespace Hiwelo\Blog\Theme;
 
 use Timber\Timber;
+use Timber\Menu as TimberMenu;
 
 /**
  * Necessary files inclusion:

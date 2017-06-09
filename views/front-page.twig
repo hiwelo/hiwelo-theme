@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+
+{% block mainClasses %}home__container{% endblock %}
+
+{% block content %}
+    <header class="home__intro">
+        <h1 class="home__title">{{post.title}}</h1>
+    </header>
+    <div class="home__content">
+        {{post.content}}
+    </div>
+{% endblock %}

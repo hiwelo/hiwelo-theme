@@ -1,0 +1,63 @@
+/**
+ * typography.scss
+ *
+ * Contains sll @font-face declarations and really global typographical
+ * CSS rules
+ */
+
+
+//
+// Variables
+
+$font-family-sans-serif:    system, -apple-system, ".SFNSText-Regular",
+                            "San Francisco", "Roboto", "Segoe UI",
+                            "Helvetica Neue", "Lucida Grande", sans-serif;
+$font-family-title:         "Raleway", $font-family-sans-serif;
+$font-family-serif:         Georgia, $font-family-sans-serif;
+$font-family-condensed:     "Open Sans Condensed", $font-family-sans-serif;
+$font-family-base:          $font-family-sans-serif;
+
+$font-size-base:            1.6rem;
+$font-size-lg:              2rem;
+$font-size-sm:              1.4rem;
+$font-size-xs:              1.2rem;
+$font-size-h1:              4rem;
+$font-size-h2:              3.2rem;
+$font-size-h3:              2.8rem;
+$font-size-h4:              2.4rem;
+$font-size-h5:              1.9rem;
+$font-size-h6:              1.6rem;
+
+
+//
+// Font declarations
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Raleway:800');
+
+//
+// Utilities rules
+
+.u-fs-condensed {
+    font-family: $font-family-condensed;
+}
+
+.u-fs-text {
+    font-family: $font-family-base;
+}
+
+.u-fs-title {
+    font-family: $font-family-title;
+}
+
+
+//
+// Typographical rules
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-family-title;
+}
