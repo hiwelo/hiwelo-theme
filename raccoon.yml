@@ -1,0 +1,28 @@
+namespace: hiwelo
+
+theme-support:
+  title-tag: true
+  post-thumbnails: true
+  automatic-feed-links: true
+  custom-logo: true
+  post-formats:
+    - link
+    - quote
+    - audio
+    - video
+  html5:
+    - caption
+    - comment-form
+    - comment-list
+    - gallery
+    - search-form
+
+theme-features:
+  js-detection: true
+  widgets: false
+  cleanup: true
+  svg-upload: true
+
+navigations:
+  primary: Main navigation
+  social: Social links
