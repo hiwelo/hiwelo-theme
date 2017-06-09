@@ -15,6 +15,8 @@
 // Settings importation
 
 @import "00_settings/colors";
+@import "00_settings/fonts";
+@import "00_settings/rem";
 @import "00_settings/sizes";
 
 
@@ -22,3 +24,9 @@
 // Utilities
 
 @import "02_utilities/wordpress";
+
+
+//
+// Components
+
+@import "03_components/home";

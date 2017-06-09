@@ -13,5 +13,9 @@
 namespace Hiwelo\Blog\Theme;
 
 use Timber\Timber;
+use Timber\Post as TimberPost;
 
-Timber::render('front-page.twig', Timber::get_context());
+$context = Timber::get_context();
+$context['post'] = new TimberPost();
+
+Timber::render('front-page.twig', $context);
