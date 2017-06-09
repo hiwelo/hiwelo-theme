@@ -1,0 +1,18 @@
+{
+    "name": "hiwelo/hiwelo-theme",
+    "description": "Hiwelo's personal Website Theme",
+    "type": "wordpress-theme",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Damien Senger",
+            "email": "damien@raccoon.studio"
+        }
+    ],
+    "require": {
+        "timber/timber": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {"Hiwelo\\Blog\\Theme\\": "./lib"}
+    }
+}
