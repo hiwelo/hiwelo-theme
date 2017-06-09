@@ -9,3 +9,9 @@
  * @author      Damien Senger <damien@raccoon.studio>
  * @link        https://codex.wordpress.org/Template_Hierarchy
  */
+
+namespace Hiwelo\Blog\Theme;
+
+use Timber\Timber;
+
+Timber::render('layout.twig', Timber::get_context());

@@ -1,0 +1,20 @@
+{# Theme layout twig file #}
+<!doctype html>
+<html class="no-js" lang="{{ site.language }}">
+<head>
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" media="all" href="{{ theme.path }}/assets/styles/styles.min.css">
+    {{ wp_head }}
+</head>
+<body class="{{ body_class }}">
+    <div class="container">
+        <main class="content" role="main">
+            {% block content %}{% endblock %}
+        </main><!-- .global__content -->
+        {{ wp_footer }}
+    </div><!-- .container -->
+    <script src="{{ theme.path }}/assets/scripts/vendor.min.js" defer></script>
+    <script src="{{ theme.path }}/assets/scripts/global.min.js" defer></script>
+</body>
+</html>
