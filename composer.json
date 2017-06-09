@@ -9,9 +9,7 @@
             "email": "damien@raccoon.studio"
         }
     ],
-    "require": {
-        "timber/timber": "^1.1"
-    },
+    "require": {},
     "autoload": {
         "psr-4": {"Hiwelo\\Blog\\Theme\\": "./lib"}
     }

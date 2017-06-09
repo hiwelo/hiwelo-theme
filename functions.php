@@ -10,6 +10,8 @@
  * @link        https://codex.wordpress.org/Functions_File_Explained
  */
 
+namespace Hiwelo\Blog\Theme;
+
 use Timber\Timber;
 
 /**
@@ -17,4 +19,9 @@ use Timber\Timber;
  *  - constants definition file
  */
 require_once 'constants.php';
-require_once 'vendor/autoload.php';
+
+/**
+ * Theme init
+ */
+$timber = new Timber();
+$theme = new Theme();
