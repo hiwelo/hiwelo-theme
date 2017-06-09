@@ -1,0 +1,13 @@
+/**
+ * WordPress utilities
+ *
+ * @author Damien Senger <damien@raccoon.studio>
+ */
+
+
+/**
+ * Adds a padding-top to body when the admin-bar is showed
+ */
+body.admin-bar {
+    padding-top: 32px;
+}

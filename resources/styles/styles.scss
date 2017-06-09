@@ -7,10 +7,18 @@
 
 //
 // Bootstrap importation
+
 @import "bootstrap";
 
 
 //
 // Settings importation
+
 @import "00_settings/colors";
 @import "00_settings/sizes";
+
+
+//
+// Utilities
+
+@import "02_utilities/wordpress";
