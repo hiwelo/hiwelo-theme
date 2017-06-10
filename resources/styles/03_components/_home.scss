@@ -82,18 +82,29 @@
             margin-bottom: 1em;
             font-size: $font-size-h3;
 
-            // &:nth-of-type(-n+4) {
-            //     font-size: $font-size-h3;
-            // }
+            &::after {
+                position: absolute;
+                display: inline-block;
+                content: '\2319';
+                margin-left: .6rem;
+                margin-top: 1rem;
+                color: $color-gray-lighter;
+                font-size: 2rem;
+                transform: rotate(180deg);
+            }
 
             &:last-of-type {
-                &::before {
-                    content: "— ";
-                    margin-left: -1.15em;
-                    color: $color-gray-lighter;
-                }
-
                 color: $color-gray-light;
+
+                &::before {
+                    position: absolute;
+                    content: "\2318";
+                    margin-left: -1.35em;
+                    margin-top: .5rem;
+                    color: $color-brand-primary;
+                    font-size: .85em;
+                    opacity: .5;
+                }
             }
         }
 
@@ -103,10 +114,15 @@
     }
 
     &__title {
+        position: relative;
         margin-bottom: .35em;
-        color: $color-brand-primary;
         font-family: $font-family-base;
         font-size: 2.5em;
         font-weight: 700;
+
+        &::after {
+            content: ',';
+            color: $color-brand-primary;
+        }
     }
 }

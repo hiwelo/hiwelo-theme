@@ -36,7 +36,7 @@ $color-purple:                  #613d7c !default;
 
 $color-gray-dark:               lighten($color-black, 15%) !default;
 $color-gray:                    lighten($color-gray-dark, 15%) !default;
-$color-gray-light:              lighten($color-gray, 15%) !default;
+$color-gray-light:              #707070 !default;
 $color-gray-lighter:            lighten($color-gray-light, 40%) !default;
 $color-gray-lightest:           lighten($color-gray-lighter, 10%) !default;
 
