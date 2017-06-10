@@ -12,8 +12,13 @@
 //
 // Variables
 
-$button-size:       3.6rem;
-$button-bar-height: .5rem;
+$nav-button-size:           3.6rem;
+$nav-button-bar-height:     .5rem;
+$nav-background:            $color-brand-primary;
+$nav-color:                 $color-white;
+$nav-button-close-color:    $nav-background;
+$nav-button-open-color:     $nav-color;
+
 
 
 //
@@ -30,12 +35,13 @@ $button-bar-height: .5rem;
 
     &__button {
         position: relative;
-        height: $button-size;
+        height: $nav-button-size;
         margin-bottom: 0;
-        width: $button-size;
+        width: $nav-button-size;
         margin-top: 15px;
         margin-left: 15px;
         cursor: pointer;
+        z-index: 100;
 
         &,
         & > span {
@@ -44,46 +50,42 @@ $button-bar-height: .5rem;
                 position: absolute;
                 display: inline-block;
                 content: '';
-                height: $button-bar-height;
-                width: $button-size;
-                background: $color-brand-primary;
+                height: $nav-button-bar-height;
+                width: $nav-button-size;
+                background: $nav-button-close-color;
                 opacity: 1;
-                transition: top .4s ease .3s,
+                transition: background .5s ease,
+                            top .4s ease .3s,
                             bottom .4s ease .3s,
-                            transform .2s ease,
-                            opacity .2s ease;
+                            transform .2s ease;
 
-                input:checked + & {
-                    transition: transform .2s ease .6s,
+                input:checked + .main-nav__content & {
+                    background: $nav-button-open-color;
+                    transition: background .5s ease,
+                                transform .2s ease .6s,
                                 top .4s ease .2s,
-                                bottom .4s ease .2s,
-                                opacity .2s ease;
+                                bottom .4s ease .2s;
                 }
             }
         }
 
         & > span {
             &::before {
-                top: $button-bar-height;
+                top: $nav-button-bar-height;
             }
 
             &::after {
                 bottom: 0;
             }
 
-            input:checked + & {
-                &::before,
-                &::after {
-                    // opacity: 0;
-                }
-
+            input:checked + .main-nav__content & {
                 &::before {
                     top: 50%;
                     transform: rotate(45deg);
                 }
 
                 &::after {
-                    bottom: calc(50% - #{$button-bar-height});
+                    bottom: calc(50% - #{$nav-button-bar-height});
                     transform: rotate(-45deg);
                 }
             }
@@ -95,15 +97,103 @@ $button-bar-height: .5rem;
         }
 
         &::before {
-            input:checked + & {
+            input:checked + .main-nav__content & {
                 transform: rotate(45deg);
             }
         }
 
         &::after {
-            input:checked + & {
+            input:checked + .main-nav__content & {
                 transform: rotate(-45deg);
             }
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: block;
+        // margin: $size-small 0;
+        padding: $size-small $size-xlarge-plus;
+        color: $nav-color;
+        font-size: $font-size-h3;
+        transition: color .2s ease .3s;
+
+        &::before {
+            @extend .u-gpu;
+            position: absolute;
+                top: $size-small; left: 0; bottom: $size-small;
+                right: calc(100% - #{$nav-button-bar-height} / 2);
+            display: block;
+            content: '';
+            background: $color-yellow;
+            transition: top .4s ease,
+                        bottom .4s ease,
+                        right .4s ease,
+                        background .3s ease .4s;
+            z-index: -1;
+        }
+
+        &:focus,
+        &:hover {
+            color: $color-brand-primary;
+            text-decoration: none;
+
+            &::before {
+                top: 0; bottom: 0;
+                right: $nav-button-bar-height;
+                background: $color-white;
+                transition: top .4s ease .3s,
+                            bottom .4s ease .3s,
+                            right .4s ease .3s,
+                            background .3s ease;
+            }
+        }
+
+        &[href^="https://raccoon.studio"] {
+            &:focus,
+            &:hover {
+                color: $color-white;
+
+                &::before {
+                    background: $color-raccoon;
+                }
+            }
+        }
+    }
+
+    &__list {
+        position: fixed;
+            top: 0; left: -100%; bottom: 0;
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+        margin-bottom: 0;
+        min-width: 250px;
+        padding: 15rem 0;
+        width: 50vw;
+        background: $nav-background;
+        color: $nav-color;
+        list-style: none;
+        transition: left 1s ease;
+        z-index: 50;
+
+        input:checked + .main-nav__content & {
+            left: 0;
+        }
+    }
+
+    &__overlay {
+        position: fixed;
+            top: 0; bottom: 0; left: -100%;
+        width: 100vw;
+        background: $color-gray-lighter;
+        opacity: 0;
+        transition: opacity 1s ease;
+        z-index: 40;
+
+        input:checked + .main-nav__content & {
+            left: 0;
+            opacity: .5;
         }
     }
 }

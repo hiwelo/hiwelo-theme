@@ -1,15 +1,18 @@
 {% if navigations.main %}
 <nav class="main-nav">
     <input type="checkbox" id="navigation_checkbox" hidden="hidden">
-    <label class="main-nav__button" for="navigation_checkbox"><span></span></label>
-    <ul class="main-nav__list">
-        {% for item in navigations.main.get_items %}
-            <li class="main-nav__item {{item.classes | join(' ')}}">
-                <a class="main-nav__link" href="{{item.link}}" target="{{ item.is_external ? '_blank' : '_self' }}">
-                    {{item.title}}
-                </a><!-- .main-nav__link -->
-            </li><!-- .main-nav__item -->
-        {% endfor %}
-    </ul><!-- .main-nav__list -->
+    <div class="main-nav__content">
+        <label class="main-nav__button" for="navigation_checkbox"><span></span></label>
+        <ul class="main-nav__list">
+            {% for item in navigations.main.get_items %}
+                <li class="main-nav__item {{item.classes | join(' ')}}">
+                    <a class="main-nav__link" href="{{item.link}}" target="{{ item.is_external ? '_blank' : '_self' }}">
+                        {{item.title}}
+                    </a><!-- .main-nav__link -->
+                </li><!-- .main-nav__item -->
+            {% endfor %}
+        </ul><!-- .main-nav__list -->
+        <label class="main-nav__overlay" for="navigation_checkbox"></label>
+    </div>
 </nav><!-- .main-nav -->
 {% endif %}
