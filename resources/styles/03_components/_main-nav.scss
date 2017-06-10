@@ -12,7 +12,7 @@
 //
 // Variables
 
-$button-size:       4rem;
+$button-size:       3.6rem;
 $button-bar-height: .5rem;
 
 
@@ -35,6 +35,7 @@ $button-bar-height: .5rem;
         width: $button-size;
         margin-top: 15px;
         margin-left: 15px;
+        cursor: pointer;
 
         &,
         & > span {
@@ -45,7 +46,7 @@ $button-bar-height: .5rem;
                 content: '';
                 height: $button-bar-height;
                 width: $button-size;
-                background: $color-brand-a11y;
+                background: $color-brand-primary;
                 opacity: 1;
                 transition: top .4s ease .3s,
                             bottom .4s ease .3s,
