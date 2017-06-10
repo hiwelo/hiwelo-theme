@@ -1,7 +1,7 @@
 {% if navigations.main %}
 <nav class="main-nav">
-    <label class="main-nav__button" for="navigation_checkbox" aria-hidden="hidden"></label>
-    <input type="checkbox" hidden="true" id="navigation_checkbox">
+    <input type="checkbox" id="navigation_checkbox" hidden="hidden">
+    <label class="main-nav__button" for="navigation_checkbox"><span></span></label>
     <ul class="main-nav__list">
         {% for item in navigations.main.get_items %}
             <li class="main-nav__item {{item.classes | join(' ')}}">

@@ -10,6 +10,13 @@
 
 
 //
+// Variables
+
+$button-size:       4rem;
+$button-bar-height: .5rem;
+
+
+//
 // Rules
 
 .main-nav {
@@ -19,5 +26,83 @@
 
     .admin-bar & {
         top: $size-medium-plus;
+    }
+
+    &__button {
+        position: relative;
+        height: $button-size;
+        margin-bottom: 0;
+        width: $button-size;
+        margin-top: 15px;
+        margin-left: 15px;
+
+        &,
+        & > span {
+            &::before,
+            &::after {
+                position: absolute;
+                display: inline-block;
+                content: '';
+                height: $button-bar-height;
+                width: $button-size;
+                background: $color-brand-a11y;
+                opacity: 1;
+                transition: top .4s ease .3s,
+                            bottom .4s ease .3s,
+                            transform .2s ease,
+                            opacity .2s ease;
+
+                input:checked + & {
+                    transition: transform .2s ease .6s,
+                                top .4s ease .2s,
+                                bottom .4s ease .2s,
+                                opacity .2s ease;
+                }
+            }
+        }
+
+        & > span {
+            &::before {
+                top: $button-bar-height;
+            }
+
+            &::after {
+                bottom: 0;
+            }
+
+            input:checked + & {
+                &::before,
+                &::after {
+                    // opacity: 0;
+                }
+
+                &::before {
+                    top: 50%;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    bottom: calc(50% - #{$button-bar-height});
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        &::before,
+        &::after {
+            top: 50%;
+        }
+
+        &::before {
+            input:checked + & {
+                transform: rotate(45deg);
+            }
+        }
+
+        &::after {
+            input:checked + & {
+                transform: rotate(-45deg);
+            }
+        }
     }
 }
