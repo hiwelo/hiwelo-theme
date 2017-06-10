@@ -8,6 +8,7 @@
     {{ wp_head }}
 </head>
 <body class="global {{ body_class }}">
+    {% include 'navigation.twig' %}
     <main class="global__content {% block mainClasses %}{% endblock %}" role="main">
         {% block content %}{% endblock %}
     </main><!-- .global__content -->

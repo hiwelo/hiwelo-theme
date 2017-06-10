@@ -1,0 +1,23 @@
+/**
+ * Main navigation component
+ *
+ * Contains all CSS rules used by the main navigation
+ *
+ * Component root selector: .main-nav
+ *
+ * @author Damien Senger <damien@raccoon.studio>
+ */
+
+
+//
+// Rules
+
+.main-nav {
+    position: absolute;
+        top: 0; left: 0;
+    display: block;
+
+    .admin-bar & {
+        top: $size-medium-plus;
+    }
+}

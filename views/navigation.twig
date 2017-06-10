@@ -1,0 +1,15 @@
+{% if navigations.main %}
+<nav class="main-nav">
+    <label class="main-nav__button" for="navigation_checkbox" aria-hidden="hidden"></label>
+    <input type="checkbox" hidden="true" id="navigation_checkbox">
+    <ul class="main-nav__list">
+        {% for item in navigations.main.get_items %}
+            <li class="main-nav__item {{item.classes | join(' ')}}">
+                <a class="main-nav__link" href="{{item.link}}" target="{{ item.is_external ? '_blank' : '_self' }}">
+                    {{item.title}}
+                </a><!-- .main-nav__link -->
+            </li><!-- .main-nav__item -->
+        {% endfor %}
+    </ul><!-- .main-nav__list -->
+</nav><!-- .main-nav -->
+{% endif %}
