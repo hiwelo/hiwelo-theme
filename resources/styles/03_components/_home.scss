@@ -10,13 +10,25 @@
 
 
 //
+// Variables
+
+$home-body-padding: $size-xlarge-plus;
+
+
+//
 // Rules
 
 .home {
     display: flex;
     min-height: 100vh;
     min-width: 100vw;
+    padding-top: $home-body-padding;
     background: $color-white;
+
+    @include media-breakpoint-up(md) {
+        padding-left: $home-body-padding;
+        padding-right: $home-body-padding;
+    }
 
     &__container {
         margin: auto;

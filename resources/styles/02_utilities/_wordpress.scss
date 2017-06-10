@@ -10,4 +10,8 @@
  */
 body.admin-bar {
     padding-top: 32px;
+
+    @media (max-width: 782px) {
+        padding-top: 46px;
+    }
 }
