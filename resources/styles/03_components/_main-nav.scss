@@ -12,9 +12,10 @@
 //
 // Variables
 
-$nav-button-size:           3.6rem;
-$nav-button-bar-height:     .5rem;
-$nav-background:            $color-brand-primary;
+$nav-button-size:           28px;
+$nav-button-bar-height:     4px;
+$nav-button-margin:         $size-medium;
+$nav-background:            $color-brand-a11y;
 $nav-color:                 $color-white;
 $nav-button-close-color:    $nav-background;
 $nav-button-open-color:     $nav-color;
@@ -38,8 +39,8 @@ $nav-button-open-color:     $nav-color;
         height: $nav-button-size;
         margin-bottom: 0;
         width: $nav-button-size;
-        margin-top: 15px;
-        margin-left: 15px;
+        margin-top: $nav-button-margin;
+        margin-left: $nav-button-margin;
         cursor: pointer;
         z-index: 100;
 
@@ -81,12 +82,12 @@ $nav-button-open-color:     $nav-color;
             input:checked + .main-nav__content & {
                 &::before {
                     top: 50%;
-                    transform: rotate(45deg);
+                    transform: translateZ(0) rotate(45deg);
                 }
 
                 &::after {
                     bottom: calc(50% - #{$nav-button-bar-height});
-                    transform: rotate(-45deg);
+                    transform: translateZ(0) rotate(-45deg);
                 }
             }
         }
@@ -112,7 +113,6 @@ $nav-button-open-color:     $nav-color;
     &__link {
         position: relative;
         display: block;
-        // margin: $size-small 0;
         padding: $size-small $size-xlarge-plus;
         color: $nav-color;
         font-size: $font-size-h3;
@@ -125,9 +125,9 @@ $nav-button-open-color:     $nav-color;
                 right: calc(100% - #{$nav-button-bar-height} / 2);
             display: block;
             content: '';
-            background: $color-yellow;
-            transition: top .4s ease,
-                        bottom .4s ease,
+            background: $nav-color;
+            transition: top .3s ease .4s,
+                        bottom .3s ease .4s,
                         right .4s ease,
                         background .3s ease .4s;
             z-index: -1;
@@ -135,15 +135,15 @@ $nav-button-open-color:     $nav-color;
 
         &:focus,
         &:hover {
-            color: $color-brand-primary;
+            color: $nav-background;
             text-decoration: none;
 
             &::before {
                 top: 0; bottom: 0;
                 right: $nav-button-bar-height;
                 background: $color-white;
-                transition: top .4s ease .3s,
-                            bottom .4s ease .3s,
+                transition: top .3s ease,
+                            bottom .3s ease,
                             right .4s ease .3s,
                             background .3s ease;
             }
@@ -171,7 +171,7 @@ $nav-button-open-color:     $nav-color;
         min-width: 250px;
         padding: 15rem 0;
         width: 50vw;
-        background: $nav-background;
+        background: rgba($nav-button-close-color, .98);
         color: $nav-color;
         list-style: none;
         transition: left 1s ease;
@@ -185,6 +185,7 @@ $nav-button-open-color:     $nav-color;
     &__overlay {
         position: fixed;
             top: 0; bottom: 0; left: -100%;
+        margin-bottom: 0;
         width: 100vw;
         background: $color-gray-lighter;
         opacity: 0;
