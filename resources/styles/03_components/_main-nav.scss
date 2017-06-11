@@ -12,14 +12,18 @@
 //
 // Variables
 
-$nav-button-size:           28px;
+$nav-background:            $color-yellow;
+$nav-color:                 $color-black;
+$nav-item-selected-color:   $color-black;
+$nav-max-width:             95vw;
+$nav-min-width:             250px;
+$nav-width:                 450px;
 $nav-button-bar-height:     4px;
+$nav-button-close-color:    $color-black;
 $nav-button-margin:         $size-medium;
-$nav-background:            $color-brand-a11y;
-$nav-color:                 $color-white;
-$nav-button-close-color:    $nav-background;
 $nav-button-open-color:     $nav-color;
-
+$nav-button-size:           28px;
+$nav-items-side-padding:    $size-xlarge-plus;
 
 
 //
@@ -60,7 +64,7 @@ $nav-button-open-color:     $nav-color;
                             bottom .4s ease .3s,
                             transform .2s ease;
 
-                input:checked + .main-nav__content & {
+                input:checked + .main-nav__wrapper & {
                     background: $nav-button-open-color;
                     transition: background .5s ease,
                                 transform .2s ease .6s,
@@ -79,7 +83,7 @@ $nav-button-open-color:     $nav-color;
                 bottom: 0;
             }
 
-            input:checked + .main-nav__content & {
+            input:checked + .main-nav__wrapper & {
                 &::before {
                     top: 50%;
                     transform: translateZ(0) rotate(45deg);
@@ -98,25 +102,49 @@ $nav-button-open-color:     $nav-color;
         }
 
         &::before {
-            input:checked + .main-nav__content & {
+            input:checked + .main-nav__wrapper & {
                 transform: rotate(45deg);
             }
         }
 
         &::after {
-            input:checked + .main-nav__content & {
+            input:checked + .main-nav__wrapper & {
                 transform: rotate(-45deg);
             }
+        }
+    }
+
+    &__content {
+        position: fixed;
+            top: 0; left: -100%; bottom: 0;
+        display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        min-width: $nav-min-width;
+        max-width: $nav-max-width;
+        padding-top: calc(#{$nav-button-margin} * 2 + #{$nav-button-size});
+        width: $nav-width;
+        background: rgba($nav-background, .98);
+        color: $nav-color;
+        transition: left 1s ease;
+        z-index: 50;
+
+        input:checked + .main-nav__wrapper & {
+            left: 0;
+        }
+
+        .admin-bar & {
+            top: $wp-admin-bar-desktop;
         }
     }
 
     &__link {
         position: relative;
         display: block;
-        padding: $size-small $size-xlarge-plus;
+        padding: $size-small $nav-items-side-padding;
         color: $nav-color;
         font-size: $font-size-h3;
-        transition: color .2s ease .3s;
+        transition: color .2s ease;
 
         &::before {
             @extend .u-gpu;
@@ -135,8 +163,9 @@ $nav-button-open-color:     $nav-color;
 
         &:focus,
         &:hover {
-            color: $nav-background;
+            color: $nav-item-selected-color;
             text-decoration: none;
+            transition: color .2s ease .3s;
 
             &::before {
                 top: 0; bottom: 0;
@@ -162,24 +191,9 @@ $nav-button-open-color:     $nav-color;
     }
 
     &__list {
-        position: fixed;
-            top: 0; left: -100%; bottom: 0;
-        display: flex;
-            flex-direction: column;
-            justify-content: center;
+        padding-left: 0;
         margin-bottom: 0;
-        min-width: 250px;
-        padding: 15rem 0;
-        width: 50vw;
-        background: rgba($nav-button-close-color, .98);
-        color: $nav-color;
         list-style: none;
-        transition: left 1s ease;
-        z-index: 50;
-
-        input:checked + .main-nav__content & {
-            left: 0;
-        }
     }
 
     &__overlay {
@@ -192,9 +206,119 @@ $nav-button-open-color:     $nav-color;
         transition: opacity 1s ease;
         z-index: 40;
 
-        input:checked + .main-nav__content & {
+        input:checked + .main-nav__wrapper & {
             left: 0;
             opacity: .5;
+        }
+    }
+
+    &__social {
+        list-style: none;
+        margin-top: auto;
+        padding: $nav-button-margin $nav-items-side-padding;
+
+        &-item {
+            display: inline-block;
+            margin: $size-triple 0;
+            margin-right: $size-small;
+        }
+
+        &-link {
+            position: relative;
+            display: inline-block;
+            padding: $size-triple 0 $size-double;
+            color: $nav-color;
+            font-size: $font-size-h5;
+            text-decoration: none;
+            transition: color .2s, margin .2s;
+
+            &::before {
+                position: absolute;
+                    top: calc(100% - .2rem); left: 0; right: 0; bottom: 0;
+                content: '';
+                background: $nav-color;
+                transition: background .2s, top .2s, left .2s, right .2s;
+                z-index: -1;
+            }
+
+            &::after {
+                @extend .icon;
+                display: none;
+                padding-left: $size-tiny;
+                color: inherit;
+                font-size: .85em;
+
+                @include media-breakpoint-up(sm) {
+                    display: inline;
+                }
+            }
+
+            &:focus,
+            &:hover {
+                color: $color-white;
+                margin: 0 .8rem;
+                text-decoration: none;
+
+                &::before {
+                    top: 0; left: -.8rem; right: -.8rem;
+                }
+            }
+
+            &[href^="https://twitter.com"] {
+                &:hover::before {
+                    background: $color-twitter;
+                }
+                &::after { content: $icon-twitter; }
+            }
+
+            &[href^="https://github.com"] {
+                &:hover::before {
+                    background: $color-github;
+                }
+                &::after { content: $icon-github; }
+            }
+
+            &[href^="https://linkedin.com"] {
+                &:hover::before {
+                    background: $color-linkedin;
+                }
+                &::after { content: $icon-linkedin; }
+            }
+
+            &[href^="https://dribbble.com"] {
+                &:hover::before {
+                    background: $color-dribbble;
+                }
+                &::after { content: $icon-dribbble; }
+            }
+
+            &[href^="https://instagram.com"] {
+                &:hover::before {
+                    background: $color-instagram;
+                }
+                &::after { content: $icon-instagram; }
+            }
+
+            &[href^="https://www.flickr.com"] {
+                &:hover::before {
+                    background: $color-flickr;
+                }
+                &::after { content: $icon-flickr; }
+            }
+
+            &[href^="https://speakerdeck.com"] {
+                &:hover::before {
+                    background: $color-speakerdeck;
+                }
+                &::after { content: $icon-presentation; }
+            }
+
+            &[href^="https://lanyrd.com"] {
+                &:hover::before {
+                    background: $color-lanyrd;
+                }
+                &::after { content: $icon-lanyrd; }
+            }
         }
     }
 }

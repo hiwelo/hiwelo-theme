@@ -1,18 +1,33 @@
-{% if navigations.main %}
+{% if navigations %}
 <nav class="main-nav">
     <input type="checkbox" id="navigation_checkbox" hidden="hidden">
-    <div class="main-nav__content">
+    <div class="main-nav__wrapper">
         <label class="main-nav__button" for="navigation_checkbox"><span></span></label>
-        <ul class="main-nav__list">
-            {% for item in navigations.main.get_items %}
-                <li class="main-nav__item {{item.classes | join(' ')}}">
-                    <a class="main-nav__link" href="{{item.link}}" target="{{ item.is_external ? '_blank' : '_self' }}">
-                        {{item.title}}
-                    </a><!-- .main-nav__link -->
-                </li><!-- .main-nav__item -->
-            {% endfor %}
-        </ul><!-- .main-nav__list -->
+        <div class="main-nav__content">
+            {% if navigations.main %}
+            <ul class="main-nav__list">
+                {% for item in navigations.main.get_items %}
+                    <li class="main-nav__item {{item.classes | join(' ')}}">
+                        <a class="main-nav__link" href="{{item.link}}" target="{{item.is_external ? '_blank' : '_self'}}">
+                            {{item.title}}
+                        </a><!-- .main-nav__link -->
+                    </li><!-- .main-nav__item -->
+                {% endfor %}
+            </ul><!-- .main-nav__list -->
+            {% endif %}
+            {% if navigations.social %}
+            <ul class="main-nav__social">
+                {% for item in navigations.social.get_items %}
+                    <li class="main-nav__social-item {{item.classes | join(' ')}}">
+                        <a class="main-nav__social-link" href="{{item.link}}" target="{{item.is_external ? '_blank' : '_self'}}" title="{{item.attr_title}}">
+                            {{item.title}}
+                        </a><!-- .main-nav__social-link -->
+                    </li><!-- .main-nav__social-item -->
+                {% endfor %}
+            </ul><!-- .main-nav__social -->
+            {% endif %}
+        </div><!-- .main-nav__content -->
         <label class="main-nav__overlay" for="navigation_checkbox"></label>
-    </div>
+    </div><!-- .main-nav__wrapper -->
 </nav><!-- .main-nav -->
 {% endif %}

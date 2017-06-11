@@ -5,13 +5,19 @@
  */
 
 
+//
+// Rules
+
+$wp-admin-bar-mobile:       46px;
+$wp-admin-bar-desktop:      32px;
+
 /**
  * Adds a padding-top to body when the admin-bar is showed
  */
 body.admin-bar {
-    padding-top: 32px;
+    padding-top: $wp-admin-bar-desktop;
 
     @media (max-width: 782px) {
-        padding-top: 46px;
+        padding-top: $wp-admin-bar-mobile;
     }
 }
