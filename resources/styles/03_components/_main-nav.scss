@@ -39,7 +39,7 @@ $nav-items-side-padding:    $size-xlarge-plus;
     }
 
     &__button {
-        position: relative;
+        position: fixed;
         height: $nav-button-size;
         margin-bottom: 0;
         width: $nav-button-size;
