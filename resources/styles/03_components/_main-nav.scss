@@ -169,7 +169,7 @@ $nav-items-side-padding:    $size-xlarge-plus;
 
             &::before {
                 top: 0; bottom: 0;
-                right: ~"calc(#{$nav-button-bar-height} * 2)";
+                right: calc(#{$nav-button-bar-height} * 4);
                 background: $color-white;
                 transition: top .3s ease,
                             bottom .3s ease,
