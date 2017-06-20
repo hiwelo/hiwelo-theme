@@ -34,6 +34,7 @@ post-types:
         public: true
         publicly_queryable: true
         query_var: true
+        has_archive: true
         rewrite:
             slug: works
         menu_icon: dashicons-admin-tools
