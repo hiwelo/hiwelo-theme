@@ -14,4 +14,4 @@ namespace Hiwelo\Blog\Theme;
 
 use Timber\Timber;
 
-Timber::render('layout.twig', Timber::get_context());
+Timber::render('generic/layout.twig', Timber::get_context());
