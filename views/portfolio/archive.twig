@@ -1,0 +1,14 @@
+{% extends 'generic/layout.twig' %}
+
+{% block mainClasses %}portfolio{% endblock %}
+
+{% block content %}
+    {% include 'generic/page-header.twig' with { 'page': postType } %}
+    <section class="portfolio__content">
+        {% if posts %}
+            {% for post in posts %}
+                {% include 'portfolio/summary.twig' %}
+            {% endfor %}
+        {% endif %}
+    </section><!-- .portfolio__content -->
+{% endblock %}

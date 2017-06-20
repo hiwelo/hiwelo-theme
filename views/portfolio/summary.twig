@@ -1,0 +1,12 @@
+{# Portfolio summary element #}
+<article class="portfolio-summary">
+    <a class="portfolio-summary__link" href="{{post.link}}">
+        <header class="portfolio-summary__header">
+            <h1 class="portfolio-summary__title">{{post.title}}</h1>
+        </header><!-- .portfolio-summary__header -->
+        <div class="portfolio-summary__thumbnail" style="background-image: url({{post.thumbnail.src}})"></div>
+        <div class="portfolio-summary__content">
+            {{post.post_excerpt}}
+        </div><!-- .portfolio-summary__content -->
+    </a><!-- .portfolio-summary__link -->
+</article><!-- .portfolio-summary -->

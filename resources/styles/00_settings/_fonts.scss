@@ -12,7 +12,7 @@
 $font-family-sans-serif:    system, -apple-system, ".SFNSText-Regular",
                             "San Francisco", "Roboto", "Segoe UI",
                             "Helvetica Neue", "Lucida Grande", sans-serif;
-$font-family-title:         "Raleway", $font-family-sans-serif;
+$font-family-title:         $font-family-sans-serif;
 $font-family-serif:         Georgia, $font-family-sans-serif;
 $font-family-condensed:     "Open Sans Condensed", $font-family-sans-serif;
 $font-family-base:          $font-family-sans-serif;
@@ -27,6 +27,9 @@ $font-size-h3:              2.8rem;
 $font-size-h4:              2.4rem;
 $font-size-h5:              1.9rem;
 $font-size-h6:              1.6rem;
+
+$font-weight-normal:        400;
+$font-weight-bold:          600;
 
 
 //

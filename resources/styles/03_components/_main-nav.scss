@@ -18,6 +18,7 @@ $nav-item-selected-color:   $color-black;
 $nav-max-width:             95vw;
 $nav-min-width:             250px;
 $nav-width:                 450px;
+$nav-width-internalpages:   350px;
 $nav-button-bar-height:     4px;
 $nav-button-close-color:    $color-black;
 $nav-button-margin:         $size-medium;
@@ -136,6 +137,10 @@ $nav-items-side-padding:    $size-xlarge-plus;
         .admin-bar & {
             top: $wp-admin-bar-desktop;
         }
+    }
+
+    .home &__item--home {
+        display: none;
     }
 
     &__link {
@@ -318,6 +323,27 @@ $nav-items-side-padding:    $size-xlarge-plus;
                     background: $color-lanyrd;
                 }
                 &::after { content: $icon-lanyrd; }
+            }
+        }
+    }
+}
+
+
+/**
+ * Navigation design update for page who are not the front page
+ */
+
+.global:not(.home) {
+    @include media-breakpoint-up(xl) {
+        margin-left: $nav-width;
+
+        & .main-nav {
+            &__button {
+                display: none;
+            }
+
+            &__content {
+                left: 0;
             }
         }
     }
