@@ -20,4 +20,4 @@
  $context = Timber::get_context();
  $context['post'] = new TimberPost();
 
- Timber::render('page-portfolio.twig', $context);
+ Timber::render('pages/portfolio.twig', $context);
