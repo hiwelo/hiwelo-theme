@@ -21,6 +21,10 @@
         background: $color-brand-primary;
         color: $color-gray-dark;
 
+        & :last-child {
+            margin-bottom: 0;
+        }
+
         @include media-breakpoint-up(lg) {
             background: $color-gray-dark;
             color: $color-gray-lightest;
