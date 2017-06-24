@@ -18,11 +18,13 @@ use Timber\Timber;
 use Timber\Post as TimberPost;
 
 // gets Post Type object and add a title containing the label of the post type
-$postType = get_queried_object();
-$postType->title = $postType->label;
+$pages = get_pages([
+    'meta_key' => '_wp_page_template',
+    'meta_value' => basename(__FILE__),
+]);
 
 $context = Timber::get_context();
-$context['postType'] = $postType;
+$context['page'] = new TimberPost($pages[0]->ID);
 $context['posts'] = Timber::get_posts();
 
 Timber::render('portfolio/archive.twig', $context);

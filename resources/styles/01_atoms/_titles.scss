@@ -1,0 +1,21 @@
+/**
+ * Titles design
+ *
+ * This file contains the CSS design for generic titles
+ * and some mixins you can use on titles.
+ */
+
+
+@mixin linebreak-sign-after() {
+    &::after {
+        position: absolute;
+        display: inline-block;
+        content: '\2319';
+        margin-left: 3%;
+        margin-top: 7%;
+        color: currentColor;
+        font-size: .5em;
+        opacity: .15;
+        transform: rotate(180deg);
+    }
+}
