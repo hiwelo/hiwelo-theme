@@ -3,10 +3,10 @@
 {% block mainClasses %}portfolio{% endblock %}
 
 {% block content %}
-    <section class="portfolio__content">
-        <header class="portfolio__header">
-            <h1 class="portfolio__title">{{postType.label}}</h1>
-        </header>
+    <header class="portfolio__header global__header">
+        <h1 class="portfolio__title">{{postType.label}}</h1>
+    </header><!-- .portfolio__header -->
+    <section class="portfolio__content global__content">
         {% if posts %}
             {% for post in posts %}
                 {% include 'portfolio/summary.twig' %}

@@ -9,7 +9,7 @@
 </head>
 <body class="global {{ body_class }}">
     {% include 'generic/navigation.twig' %}
-    <main class="global__content {% block mainClasses %}{% endblock %}" role="main">
+    <main class="global__container {% block mainClasses %}{% endblock %}" role="main">
         {% block content %}{% endblock %}
     </main><!-- .global__content -->
     {{ wp_footer }}

@@ -33,9 +33,17 @@
 // Organisms specific styles
 
 @import "03_organisms/main-nav";
+@import "03_organisms/portfolio-header";
+
+
+//
+// Templates specific styles
+
+@import "04_templates/archive";
 
 
 //
 // Pages specific styles
 
 @import "05_pages/home";
+@import "05_pages/portfolio";

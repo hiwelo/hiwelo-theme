@@ -1,0 +1,21 @@
+/**
+ * Archive's pages global SCSS
+ *
+ * Component root selector: .archive
+ */
+
+
+.archive .global {
+    &__container {
+        display: flex;
+            flex-direction: column;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+        }
+    }
+
+    &__header {
+
+    }
+}

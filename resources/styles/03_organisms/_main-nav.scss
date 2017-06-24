@@ -109,7 +109,7 @@ $nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size;
             width: 0;
             content: '';
             background: rgba($nav-background, .98);
-            transition: width 1s ease;
+            transition: none;
             z-index: 10;
         }
 
@@ -356,7 +356,9 @@ $nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size;
             }
 
             &::before {
+                max-width: $nav-max-width;
                 width: $nav-width;
+                transition: width 0s 1s;
             }
         }
 
@@ -375,28 +377,10 @@ $nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size;
 // Body updated to add a padding-left
 
 body {
+    padding-top: $nav-button-complete-size;
+
     @include media-breakpoint-up(lg) {
         padding-left: $nav-button-complete-size;
-    }
-}
-
-
-/**
- * Navigation design update for page who are not the front page
- */
-
-.global:not(.home) {
-    @include media-breakpoint-up(xl) {
-        margin-left: $nav-width;
-
-        & .main-nav {
-            &__button {
-                display: none;
-            }
-
-            &__content {
-                left: 0;
-            }
-        }
+        padding-top: 0;
     }
 }
