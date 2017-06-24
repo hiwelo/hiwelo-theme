@@ -3,8 +3,10 @@
 {% block mainClasses %}portfolio{% endblock %}
 
 {% block content %}
-    {% include 'generic/page-header.twig' with { 'page': postType } %}
     <section class="portfolio__content">
+        <header class="portfolio__header">
+            <h1 class="portfolio__title">{{postType.label}}</h1>
+        </header>
         {% if posts %}
             {% for post in posts %}
                 {% include 'portfolio/summary.twig' %}
