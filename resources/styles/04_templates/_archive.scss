@@ -16,6 +16,17 @@
     }
 
     &__header {
+        display: flex;
+        min-height: 30rem;
+        height: 30vh;
+        background: $color-gray-lightest;
+        overflow: hidden;
+    }
 
+    &__title {
+        margin: auto;
+        color: $color-gray-light;
+        font-size: 25vw;
+        line-height: 1;
     }
 }

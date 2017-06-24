@@ -18,13 +18,15 @@ $nav-item-selected-color:   $color-black;
 $nav-max-width:             95vw;
 $nav-min-width:             25rem;
 $nav-width:                 45rem;
-$nav-button-bar-height:     .4rem;
+$nav-button-bar-height:     .2rem;
+$nav-button-bar-space:      $nav-button-bar-height * 3;
 $nav-button-close-color:    $color-black;
 $nav-button-margin:         $size-medium;
+$nav-button-padding:        $size-small;
 $nav-button-open-color:     $nav-color;
-$nav-button-size:           2.8rem;
+$nav-button-size:           $nav-button-bar-height * 3 + $nav-button-bar-space * 2;
 $nav-items-side-padding:    $size-xlarge-plus;
-$nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size;
+$nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size + $nav-button-padding * 2;
 
 
 //
@@ -36,50 +38,59 @@ $nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size;
     display: block;
 
     &__button {
-        position: absolute;
-        height: $nav-button-size;
+        position: fixed;
+        height: $nav-button-size + $nav-button-padding * 2;
         margin-bottom: 0;
-        width: $nav-button-size;
+        padding: $nav-button-padding;
+        width: $nav-button-size + $nav-button-padding * 2;
         margin-top: $nav-button-margin;
         margin-left: $nav-button-margin;
         cursor: pointer;
+        background: $color-white;
+        border-radius: 50%;
         z-index: 100;
 
-        @include media-breakpoint-up(lg) {
-            position: fixed;
-        }
-
-        &,
         & > span {
+            position: relative;
+            display: block;
+            height: 100%;
+            margin-top: $nav-button-bar-height / 2 * -1;
+            width: 100%;
+
+            &,
+            & > span {
+                &::before,
+                &::after {
+                    position: absolute;
+                    display: inline-block;
+                    content: '';
+                    height: $nav-button-bar-height;
+                    width: $nav-button-size;
+                    background: $nav-button-close-color;
+                    border-radius: 0;
+                    opacity: 1;
+                    transition: background .5s ease,
+                                top .4s ease .3s,
+                                bottom .4s ease .3s,
+                                transform .2s ease,
+                                border-radius .2s ease;
+                }
+            }
+
             &::before,
             &::after {
-                position: absolute;
-                display: inline-block;
-                content: '';
-                height: $nav-button-bar-height;
-                width: $nav-button-size;
-                background: $nav-button-close-color;
-                opacity: 1;
-                transition: background .5s ease,
-                            top .4s ease .3s,
-                            bottom .4s ease .3s,
-                            transform .2s ease;
-            }
-        }
-
-        & > span {
-            &::before {
-                top: $nav-button-bar-height;
+                top: 50%;
             }
 
-            &::after {
-                bottom: 0;
-            }
-        }
+            & > span {
+                &::before {
+                    top: $nav-button-bar-height;
+                }
 
-        &::before,
-        &::after {
-            top: 50%;
+                &::after {
+                    bottom: 0;
+                }
+            }
         }
     }
 
@@ -314,36 +325,40 @@ $nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size;
         &__button {
             position: fixed;
 
-            &,
             & > span {
-                &::before,
-                &::after {
-                    background: $nav-button-open-color;
-                    transition: background .5s ease,
-                                transform .2s ease .6s,
-                                top .4s ease .2s,
-                                bottom .4s ease .2s;
+                &,
+                & > span {
+                    &::before,
+                    &::after {
+                        background: $nav-button-open-color;
+                        border-radius: $nav-button-bar-height / 2;
+                        transition: background .5s ease,
+                                    transform .2s ease .6s,
+                                    top .4s ease .2s,
+                                    bottom .4s ease .2s,
+                                    border-radius .2s ease;
+                    }
                 }
-            }
 
-            & > span {
+                & > span {
+                    &::before {
+                        top: 50%;
+                        transform: translateZ(0) rotate(45deg);
+                    }
+
+                    &::after {
+                        bottom: calc(50% - #{$nav-button-bar-height});
+                        transform: translateZ(0) rotate(-45deg);
+                    }
+                }
+
                 &::before {
-                    top: 50%;
-                    transform: translateZ(0) rotate(45deg);
+                    transform: rotate(45deg);
                 }
 
                 &::after {
-                    bottom: calc(50% - #{$nav-button-bar-height});
-                    transform: translateZ(0) rotate(-45deg);
+                    transform: rotate(-45deg);
                 }
-            }
-
-            &::before {
-                transform: rotate(45deg);
-            }
-
-            &::after {
-                transform: rotate(-45deg);
             }
         }
 
@@ -377,10 +392,7 @@ $nav-button-complete-size:  $nav-button-margin * 2 + $nav-button-size;
 // Body updated to add a padding-left
 
 body {
-    padding-top: $nav-button-complete-size;
-
     @include media-breakpoint-up(lg) {
         padding-left: $nav-button-complete-size;
-        padding-top: 0;
     }
 }
