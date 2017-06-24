@@ -1,0 +1,16 @@
+/**
+ * REM Reset
+ *
+ * Set the REM value to 10px, if the font-size of the browser is 16px.
+ * With this file, 1rem = 10px and .1rem = 1px
+ */
+
+
+html {
+    font-size: .625em; /* fallback IE8+ */
+    font-size: calc(1em * .625);
+}
+
+body {
+    font-size: 1.6rem;
+}
