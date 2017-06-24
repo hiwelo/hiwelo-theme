@@ -12,8 +12,8 @@
 //
 // Variables
 
-$nav-background:            $color-yellow;
-$nav-color:                 $color-black;
+$nav-background:            $color-brand-primary;
+$nav-color:                 $color-brand-inverse-a11y;
 $nav-item-selected-color:   $color-black;
 $nav-max-width:             95vw;
 $nav-min-width:             250px;
@@ -126,15 +126,12 @@ $nav-items-side-padding:    $size-xlarge-plus;
         width: $nav-width;
         background: rgba($nav-background, .98);
         color: $nav-color;
+        overflow-y: scroll;
         transition: left 1s ease;
         z-index: 50;
 
         input:checked + .main-nav__wrapper & {
             left: 0;
-        }
-
-        .admin-bar & {
-            top: $wp-admin-bar-desktop;
         }
     }
 
@@ -153,7 +150,7 @@ $nav-items-side-padding:    $size-xlarge-plus;
                 right: calc(100% - #{$nav-button-bar-height} / 2);
             display: block;
             content: '';
-            background: $nav-color;
+            background: $nav-item-selected-color;
             transition: top .3s ease .4s,
                         bottom .3s ease .4s,
                         right .4s ease,
@@ -218,9 +215,13 @@ $nav-items-side-padding:    $size-xlarge-plus;
         padding: $nav-button-margin $nav-items-side-padding;
 
         &-item {
-            display: inline-block;
+            display: block;
             margin: $size-triple 0;
             margin-right: $size-small;
+
+            @include media-breakpoint-up(sm) {
+                display: inline-block;
+            }
         }
 
         &-link {
