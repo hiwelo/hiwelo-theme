@@ -12,32 +12,34 @@
 //
 // Variables
 
-$home-body-padding: $size-xlarge-plus;
+$home-body-padding: $size-xxxxlarge-plus;
 
 
 //
 // Rules
 
 .home {
-    display: flex;
-    min-height: 100vh;
-    min-width: 100vw;
-    padding-top: $home-body-padding;
-    background: $color-white;
-
-    @include media-breakpoint-up(md) {
-        padding-left: $home-body-padding;
-        padding-right: $home-body-padding;
+    &__container {
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+        min-height: 100vh;
+        min-width: 100vw;
+        padding: $home-body-padding 0;
     }
 
-    &__container {
-        margin: auto;
+    &__content,
+    &__intro {
+        margin: 0 auto;
         max-width: 60rem;
-        padding: 10vh 0;
         width: 85%;
     }
 
     &__content {
+        & :last-child {
+            margin-bottom: 0;
+        }
+
         & a {
             position: relative;
             display: inline-block;
@@ -105,7 +107,7 @@ $home-body-padding: $size-xlarge-plus;
                 transform: rotate(180deg);
             }
 
-            &:last-of-type {
+            &.collaboration {
                 color: $color-gray-light;
 
                 &::before {
