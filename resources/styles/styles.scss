@@ -6,31 +6,29 @@
 
 
 //
-// Bootstrap importation
-
-@import "bootstrap";
-
+// Normalize.css import
+@import "bootstrap-reboot";
 
 //
 // Settings importation
 
-@import "00_settings/colors";
-@import "00_settings/fonts";
-@import "00_settings/icons";
-@import "00_settings/media";
-@import "00_settings/rem";
-@import "00_settings/sizes";
+@import "00_base/colors";
+@import "00_base/fonts";
+@import "00_base/helpers";
+@import "00_base/icons";
+@import "00_base/media";
+@import "00_base/rem";
+@import "00_base/sizes";
+@import "00_base/utilities";
+@import "00_base/wordpress";
 
 
 //
-// Utilities
+// Organisms specific styles
 
-@import "02_utilities/generic";
-@import "02_utilities/wordpress";
-
+@import "03_organisms/main-nav";
 
 //
-// Components
+// Pages specific styles
 
-@import "03_components/home";
-@import "03_components/main-nav";
+@import "05_pages/home";
