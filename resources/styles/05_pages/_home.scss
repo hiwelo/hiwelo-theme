@@ -77,10 +77,16 @@ $home-body-padding: $size-xxxxlarge-plus;
         & p {
             margin-bottom: 1em;
             font-size: $font-size-h3;
-            @include linebreak-sign-after();
 
             &::after {
+                position: absolute;
+                display: inline-block;
+                content: '¬';
+                margin-left: .3em;
+                color: currentColor;
+                font-size: .5em;
                 line-height: 3;
+                opacity: .25;
             }
 
             &.collaboration {
