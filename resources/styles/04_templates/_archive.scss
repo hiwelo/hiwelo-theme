@@ -36,7 +36,8 @@
             display: flex;
                 flex-direction: column;
             min-height: 100%;
-            width: 35vw;
+            min-width: 30rem;
+            width: 25vw;
         }
     }
 
@@ -49,7 +50,7 @@
         padding: $padding-medium 7.5%;
         background: $color-gray-lightest;
         color: $color-gray-dark;
-        font-size: 20vw;
+        font-size: 18vw;
         font-weight: 800;
         hyphens: manual;
         line-height: 1;
@@ -60,7 +61,7 @@
 
         @include media-breakpoint-up(lg) {
             flex: 1;
-            font-size: 5vw;
+            font-size: 4.5vw;
         }
     }
 }
