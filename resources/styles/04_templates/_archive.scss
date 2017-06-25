@@ -50,7 +50,51 @@
         }
     }
 
+    &__previous-link {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+                top: 0; left: 0;
+            display: block;
+            height: 4.4rem;
+            margin: 2.5rem;
+            width: 4.4rem;
+            background-color: $color-white;
+            border-radius: 50%;
+
+            &::before,
+            &::after {
+                position: absolute;
+                    left: calc(50% - .8rem);
+                display: block;
+                height: .2rem;
+                width: 1rem;
+                content: '';
+                background: $color-gray-dark;
+                pointer-events: none;
+            }
+
+            &::before {
+                bottom: 50%;
+                transform: rotate(-45deg) translateX(3px);
+            }
+
+            &::after {
+                top: 50%;
+                transform: rotate(45deg) translateX(3px);
+            }
+
+            a {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
     &__title {
+        @include uppercase-hyphens-title();
         display: flex;
             align-items: flex-end;
         height: 50vh;
@@ -62,11 +106,32 @@
         font-size: 18vw;
         overflow: hidden;
 
-        @include uppercase-hyphens-title();
-
         @include media-breakpoint-up(lg) {
             flex: 1;
             font-size: 4.5vw;
+        }
+    }
+}
+
+
+//
+// Taxonomies specific design
+
+.archive[class*='tax-'] .global {
+    &__title {
+        font-size: 10vw;
+        hyphens: auto;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 8vw;
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: 6vw;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 2.6vw;
         }
     }
 }

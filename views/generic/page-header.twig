@@ -1,11 +1,18 @@
 {# Page template header section #}
 <header class="global__header">
-    {% if page.title %}
-        <h1 class="global__title">{{page.title}}</h1>
-    {% endif %}
-    {% if page.content %}
+    <h1 class="global__title">{{page.title}}</h1>
+    {% if (page.content or page.description) %}
         <div class="global__intro">
-            {{page.content}}
+            {% if page.content %}
+                {{page.content}}
+            {% elseif page.description %}
+                {{page.description}}
+            {% endif %}
         </div><!-- .global__intro -->
+    {% endif %}
+    {% if previousLink %}
+        <div class="global__previous-link">
+            <a href="{{previousLink.href}}"><span class="sr-only">{{previousLink.name}}</span></a>
+        </div>
     {% endif %}
 </header><!-- .global__header -->
