@@ -2,10 +2,41 @@
 
 namespace Hiwelo\Blog\Theme;
 
+/**
+ * Hiwelo's theme main class
+ */
 class Theme {
+    /**
+     * Theme class constructor
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->flushRulesIfDevelopment();
+    }
+
+    /**
+     * Returns the WordPress WP_Post_Type object for the asked taxonomy if
+     * the asked taxonomy is already registered in WordPress
+     *
+     * @param string $term Asked taxonomy
+     *
+     * @return WP_Post_Type|boolean
+     * @static
+     */
+    public static function getPostTypeByTaxonomy($term = 'category')
+    {
+        global $wp_taxonomies;
+
+        // early termination if the term is not found in the registered taxonomies
+        if (!array_key_exists($term, $wp_taxonomies)) {
+            return false;
+        }
+
+        $postType = $wp_taxonomies[$term]->object_type[0];
+
+        return get_post_type_object($postType);
     }
 
     /**
