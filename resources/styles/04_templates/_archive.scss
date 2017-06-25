@@ -1,0 +1,72 @@
+/**
+ * Archive's pages global SCSS
+ *
+ * Component root selector: .archive
+ */
+
+
+.archive .global {
+    &__container {
+        position: relative;
+        display: flex;
+            flex-direction: column;
+        min-height: 100vh;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+        }
+    }
+
+    &__content {
+        @include media-breakpoint-up(lg) {
+            flex: 1;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+    }
+
+    &__header {
+        @include media-breakpoint-up(lg) {
+            display: flex;
+                flex-direction: column;
+            height: 100vh;
+            min-width: 30rem;
+            width: 25vw;
+        }
+    }
+
+    &__intro {
+        padding: $padding-block;
+        background: $color-brand-primary;
+        color: $color-gray-dark;
+
+        & :last-child {
+            margin-bottom: 0;
+        }
+
+        @include media-breakpoint-up(lg) {
+            background: $color-gray-dark;
+            color: $color-gray-lightest;
+        }
+    }
+
+    &__title {
+        display: flex;
+            align-items: flex-end;
+        height: 50vh;
+        margin: 0;
+        min-height: 2.5em;
+        padding: $padding-medium 7.5%;
+        background: $color-gray-lightest;
+        color: $color-gray-dark;
+        font-size: 18vw;
+        overflow: hidden;
+
+        @include uppercase-hyphens-title();
+
+        @include media-breakpoint-up(lg) {
+            flex: 1;
+            font-size: 4.5vw;
+        }
+    }
+}

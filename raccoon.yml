@@ -17,6 +17,44 @@ theme-support:
     - gallery
     - search-form
 
+post-types:
+    portfolio:
+        labels:
+            name: Portfolio
+            singular_name: Work
+            menu_name: Portfolio
+            name_admin_bar: Work
+            add_new: Add new
+            add_new_item: Add new work
+            new_item: New work
+            edit_item: Edit work
+            view_item: View work
+            all_items: All works
+        description: Portfolio of previous works
+        public: true
+        publicly_queryable: true
+        query_var: true
+        has_archive: true
+        taxonomies:
+            - category
+        rewrite:
+            slug: works
+        menu_icon: dashicons-admin-tools
+        supports:
+            - title
+            - editor
+            - thumbnail
+            - excerpt
+
+taxonomies:
+    project-type:
+        object: portfolio
+        label: Project types
+        public: true
+        show_in_menu: true
+        show_in_nav_menu: true
+        hierarchical: true
+
 theme-features:
   js-detection: true
   widgets: false

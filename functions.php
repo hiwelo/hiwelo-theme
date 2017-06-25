@@ -36,5 +36,6 @@ add_filter('timber_context', function ($data) {
     $data['navigations']['main'] = new TimberMenu('primary');
     $data['navigations']['social'] = new TimberMenu('social');
     $data['site']->logo = get_custom_logo();
+
     return $data;
 });

@@ -1,0 +1,11 @@
+{# Page template header section #}
+<header class="global__header">
+    {% if page.title %}
+        <h1 class="global__title">{{page.title}}</h1>
+    {% endif %}
+    {% if page.content %}
+        <div class="global__intro">
+            {{page.content}}
+        </div><!-- .global__intro -->
+    {% endif %}
+</header><!-- .global__header -->

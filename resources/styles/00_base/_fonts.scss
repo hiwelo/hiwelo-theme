@@ -12,8 +12,8 @@
 $font-family-sans-serif:    system, -apple-system, ".SFNSText-Regular",
                             "San Francisco", "Roboto", "Segoe UI",
                             "Helvetica Neue", "Lucida Grande", sans-serif;
-$font-family-title:         "Raleway", $font-family-sans-serif;
-$font-family-serif:         Georgia, $font-family-sans-serif;
+$font-family-title:         "Montserrat", $font-family-sans-serif;
+$font-family-serif:         "Georgia", $font-family-sans-serif;
 $font-family-condensed:     "Open Sans Condensed", $font-family-sans-serif;
 $font-family-base:          $font-family-sans-serif;
 
@@ -28,11 +28,15 @@ $font-size-h4:              2.4rem;
 $font-size-h5:              1.9rem;
 $font-size-h6:              1.6rem;
 
+$font-weight-normal:        400;
+$font-weight-bold:          600;
+
 
 //
 // Font declarations
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Raleway:800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&subset=latin-ext');
 
 //
 // Utilities rules

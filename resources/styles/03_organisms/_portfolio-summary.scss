@@ -1,0 +1,186 @@
+/**
+ * Portfolio's summary component
+ *
+ * This component displays a thumbnail of the project, the title and some
+ * quick informations.
+ *
+ * Component root selector: .portfolio-summary
+ */
+
+
+.portfolio-summary {
+    position: relative;
+    display: flex;
+        flex-direction: column;
+    margin: $margin-xlarge;
+    background: transparent;
+
+    @include media-breakpoint-up(lg) {
+        flex-direction: row-reverse;
+        height: calc(50vh - #{$margin-xlarge} - #{$margin-xlarge / 2});
+    }
+
+    a {
+        @extend .invisibleLink;
+    }
+
+    &__categories {
+        display: flex;
+            flex-wrap: wrap;
+        list-style: none;
+        margin: .5em 0 0;
+        padding: 0;
+        font-size: .75em;
+
+        @include media-breakpoint-up(sm) {
+            font-size: .85em;
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: .9em;
+        }
+
+        &::after {
+            flex: 1;
+            height: 0;
+            margin-top: .75em;
+            content: '';
+            border-top: $size-unit solid currentColor;
+            opacity: .25;
+
+            @include media-breakpoint-up(lg) {
+                content: none;
+            }
+        }
+    }
+
+    &__category {
+        padding-right: .65em;
+        text-transform: capitalize;
+
+        @include media-breakpoint-up(lg) {
+            display:inline-flex;
+            padding-right: 0;
+            color: $color-gray;
+
+            &:not(:last-child)::after {
+                padding: 0 .25em;
+                content: '+';
+                color: $color-gray-lighter;
+                font-family: $font-family-title;
+                font-weight: 400;
+                line-height: 1.15;
+            }
+        }
+
+        a:focus,
+        a:hover {
+            color: $color-black;
+            text-decoration: underline;
+        }
+    }
+
+    &__figure {
+        display: flex;
+            align-items: flex-end;
+        margin-bottom: 1em;
+        width: 100%;
+
+        @include media-breakpoint-down(md) {
+            background-image: none !important;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex: 1;
+            margin-bottom : 0;
+            overflow: hidden;
+
+            & > a {
+                display: block;
+                height: 100%;
+                width: 100%;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                transition: transform .3s ease;
+
+                &:focus,
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        & img {
+            height: auto;
+            width: 100%;
+
+            @include media-breakpoint-up(lg) {
+                @include sr-only();
+            }
+        }
+    }
+
+    &__header {
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+            padding: 0 $padding-large 0 0;
+            width: 50%;
+            overflow: hidden;
+        }
+    }
+
+    &__placeholder {
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-color: $color-brand-primary;
+    }
+
+    &__title {
+        @include uppercase-hyphens-title();
+        margin-bottom: 0;
+        color: $color-gray-dark;
+        font-size: $font-size-h5;
+        hyphens: manual;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $font-size-h4;
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: $font-size-h3;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $font-size-h2;
+
+            &::after {
+                content: none;
+            }
+        }
+    }
+
+    &__year {
+        @include media-breakpoint-down(md) {
+            @include sr-only();
+        }
+
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+                bottom: 0; right: $padding-large;
+            color: $color-gray-lighter;
+            opacity: .2;
+            font-family: $font-family-title;
+            font-size: 8vw;
+            font-weight: 800;
+            line-height: .7;
+            z-index: -1;
+        }
+    }
+}
