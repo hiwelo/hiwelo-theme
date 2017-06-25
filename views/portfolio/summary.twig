@@ -1,12 +1,27 @@
 {# Portfolio summary element #}
-<article class="portfolio-summary">
-    <a class="portfolio-summary__link" href="{{post.link}}">
-        <header class="portfolio-summary__header">
-            <h1 class="portfolio-summary__title">{{post.title}}</h1>
-        </header><!-- .portfolio-summary__header -->
-        <div class="portfolio-summary__thumbnail" style="background-image: url({{post.thumbnail.src}})"></div>
-        <div class="portfolio-summary__content">
-            {{post.post_excerpt}}
-        </div><!-- .portfolio-summary__content -->
-    </a><!-- .portfolio-summary__link -->
+<article class="portfolio-summary" data-work-slug="{{post.slug}}">
+    <figure class="portfolio-summary__figure">
+        <a href="{{post.link}}" style="background-image: url({{post.thumbnail.src}});">
+            {% if post.thumbnail %}
+                <img src="{{post.thumbnail.src}}" alt="">
+            {% else %}
+                <span class="portfolio-summary__placeholder" style="background-color: {{post.get_field('background_color')}};"></span>
+            {% endif %}
+        </a>
+    </figure><!-- .portfolio-summary__figure -->
+    <header class="portfolio-summary__header">
+        <h1 class="portfolio-summary__title">
+            <a href="{{post.link}}">{{post.title}}</a>
+        </h1><!-- .portfolio-summary__title -->
+        {% if post.terms %}
+        <ul class="portfolio-summary__categories">
+            {% for category in post.terms %}
+                <li class="portfolio-summary__category">
+                    <a href="{{category.link}}">{{category.title}}</a>
+                </li><!-- .portfolio-summary__category -->
+            {% endfor %}
+        </ul><!-- .portfolio-summary__categories -->
+        {% endif %}
+        <div class="portfolio-summary__year">{{post.get_field('year')}}</div>
+    </header><!-- .portfolio-summary__header -->
 </article><!-- .portfolio-summary -->

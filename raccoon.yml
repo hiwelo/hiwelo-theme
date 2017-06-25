@@ -53,6 +53,7 @@ taxonomies:
         public: true
         show_in_menu: true
         show_in_nav_menu: true
+        hierarchical: true
 
 theme-features:
   js-detection: true

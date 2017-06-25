@@ -12,3 +12,8 @@
 .u-gpu {
     transform: translateZ(0);
 }
+
+
+.sr-only {
+    @include sr-only;
+}

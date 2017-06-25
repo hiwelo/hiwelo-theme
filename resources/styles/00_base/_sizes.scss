@@ -42,6 +42,9 @@ $padding-large:         $size-medium;
 $padding-xlarge:        $size-large;
 $padding-xxlarge:       $size-xxxlarge-plus;
 
+$padding-block:         $padding-xxlarge $padding-xxlarge / 2;
+$padding-block-small:   $padding-large $padding-xxlarge / 2;
+
 $margin-null:           $size-null;
 $margin-small:          $size-tiny-plus;
 $margin-medium:         $size-small;

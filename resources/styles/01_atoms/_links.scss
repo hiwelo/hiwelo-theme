@@ -41,6 +41,7 @@ a {
 .invisibleLink {
     position: static;
     display: inline;
+    color: inherit;
     line-height: 1.15;
 
     &::before {

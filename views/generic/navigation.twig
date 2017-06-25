@@ -6,11 +6,6 @@
         <div class="main-nav__content">
             {% if navigations.main %}
             <ul class="main-nav__list">
-                <li class="main-nav__item main-nav__item--home">
-                    <a class="main-nav__link" href="{{site.link}}">
-                        Home
-                    </a><!-- .main-nav__link -->
-                </li><!-- .main-nav__item -->
                 {% for item in navigations.main.get_items %}
                     <li class="main-nav__item {{item.classes | join(' ')}}">
                         <a class="main-nav__link" href="{{item.link}}" target="{{item.is_external ? '_blank' : '_self'}}">
