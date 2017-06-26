@@ -1,0 +1,22 @@
+/**
+ * Portfolio single content page CSS
+ *
+ * Contains all CSS rules used by the single page of the portfolio post-type
+ *
+ * Component root selector: .portfolio-item
+ *
+ * @author Damien Senger <damien@raccoon.studio>
+ */
+
+
+.portfolio-item {
+    padding: $padding-large;
+}
+
+
+//
+// Specific rule when the portfolio-item is loaded as a direct child of the .global__container
+
+.global__container > .portfolio-item {
+    flex: 1;
+}
