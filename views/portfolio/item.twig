@@ -1,0 +1,37 @@
+<article class="portfolio-item">
+    <figure class="portfolio-item__thumbnail">
+
+    </figure><!-- .portfolio-item__thumbnail -->
+    <header class="portfolio-item__header">
+        <h1 class="portfolio-item__title">{{post.title}}</h1>
+        {% if post.terms %}
+            <ul class="portfolio-item__categories">
+                {% for item in post.terms %}
+                    <li class="portfolio-item__category">{{item.title}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p class="portfolio-item__excerpt">{{post.post_excerpt}}</p>
+    </header><!-- .portfolio-item__header -->
+
+    <aside class="portfolio-item__aside">
+        <dl class="portfolio-item__infos">
+            {% if post.get_field('client') %}
+                <dt class="portfolio-item__infos-name">{{__('Owner')}}</dt>
+                <dd class="portfolio-item__infos-value">{{post.get_field('client')}}</dd>
+            {% endif %}
+            {% if post.get_field('project_uri') %}
+                <dt class="portfolio-item__infos-name">{{__('Website')}}</dt>
+                <dd class="portfolio-item__infos-value">{{post.get_field('project_uri')}}</dd>
+            {% endif %}
+            {% if post.get_field('year') %}
+                <dt class="portfolio-item__infos-name">{{__('Year')}}</dt>
+                <dd class="portfolio-item__infos-value">{{post.get_field('year')}}</dd>
+            {% endif %}
+        </dl><!-- .portfolio-item__list -->
+    </aside><!-- .portfolio-item__aside -->
+
+    <div class="portfolio-item__content">
+        {{post.content}}
+    </div><!-- .portfolio-item__content -->
+</article><!-- .portfolio-item -->
