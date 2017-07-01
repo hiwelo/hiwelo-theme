@@ -22,11 +22,11 @@ $postType = Theme::getPostTypeByTaxonomy($term->taxonomy);
 
 $context = Timber::get_context();
 $context['page'] = new TimberTerm();
-$context['page']->title = __('Projects:') . '<br>' . $context['page']->title;
+$context['page']->title = '<span>' . __('Projects:') . '</span>' . $context['page']->title;
 $context['posts'] = Timber::get_posts();
 $context['previousLink'] = [
     'name' => __($postType->label),
     'href' => get_post_type_archive_link($postType->name),
 ];
 
-Timber::render('portfolio/archive.twig', $context);
+Timber::render('pages/archive.twig', $context);

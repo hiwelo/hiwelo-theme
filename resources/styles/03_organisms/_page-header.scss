@@ -10,7 +10,7 @@
  */
 
 
-body:not(.home) .page-header {
+.page-header {
     &__header {
         @include media-breakpoint-up(lg) {
             display: flex;
@@ -80,20 +80,43 @@ body:not(.home) .page-header {
     }
 
     &__title {
-        @include uppercase-hyphens-title();
+        @include uppercase-title();
         display: flex;
-            align-items: flex-end;
+            flex-direction: column;
+            justify-content: flex-end;
         height: 50vh;
         margin: 0;
         min-height: 2.5em;
         padding: $padding-medium 7.5%;
         background: $color-gray-lightest;
         color: $color-gray-dark;
-        font-size: 18vw;
+        font-size: 10vw;
+        hyphens: auto;
+        line-height: 1.3;
         overflow: hidden;
 
         @include media-breakpoint-up(lg) {
             flex: 1;
+            font-size: 2.65vw;
+        }
+
+        & span {
+            display: block;
+            font-size: .65em;
+        }
+    }
+}
+
+
+//
+// Portfolio & Blog specific styles
+
+.portfolio .page-header {
+    &__title {
+        @include uppercase-hyphens-title();
+        font-size: 18vw;
+
+        @include media-breakpoint-up(lg) {
             font-size: 4.5vw;
         }
     }
