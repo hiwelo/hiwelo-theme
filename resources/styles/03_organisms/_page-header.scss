@@ -111,13 +111,17 @@
 //
 // Portfolio & Blog specific styles
 
-.portfolio .page-header {
-    &__title {
-        @include uppercase-hyphens-title();
-        font-size: 18vw;
 
-        @include media-breakpoint-up(lg) {
-            font-size: 4.5vw;
+.page-header {
+    .blog &,
+    .portfolio & {
+        &__title {
+            @include uppercase-hyphens-title();
+            font-size: 18vw;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 4.5vw;
+            }
         }
     }
 }
