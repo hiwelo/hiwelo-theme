@@ -6,6 +6,18 @@
 
 
 .work {
+    & {
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            display: flex;
+        }
+    }
+
+    &__content {
+        padding: $padding-xlarge;
+    }
+
     &__header {
         @include media-breakpoint-down(md) {
             font-size: 12vw;
@@ -20,6 +32,13 @@
         @include media-breakpoint-down(md) {
             @include sr-only;
         }
+    }
+
+    &__thumbnail {
+        margin-bottom: $margin-xlarge;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 75rem;
     }
 
     &__title {

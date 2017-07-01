@@ -1,0 +1,95 @@
+/**
+ * Content from a WYSIWYG content field in the panel SCSS
+ *
+ * Component root selector: .wp-content
+ */
+
+
+.wp-content {
+    & {
+        margin: 0 auto;
+        max-width: 70rem;
+    }
+
+    blockquote,
+    p,
+    ul {
+        margin: 0;
+        margin-top: 1.5em;
+        color: $color-gray-dark;
+        font-family: $font-family-labeur;
+        font-size: 1.8rem;
+        font-weight: $font-weight-serif-normal;
+        line-height: 1.75;
+
+        @include media-breakpoint-up(xl) {
+            font-size: 1.8rem;
+        }
+    }
+
+    a {
+        padding-bottom: $size-double;
+
+        &:focus,
+        &:hover {
+            &::before {
+                top: $size-double * -1;
+            }
+        }
+    }
+
+    blockquote {
+        margin-left: -.85em;
+        padding-bottom: $size-double;
+        padding-left: .85em;
+        border-left: $size-triple solid $color-brand-primary;
+        font-style: italic;
+    }
+
+    @for $i from 2 to 5 {
+        h#{$i},
+        .h#{$i}-like {
+            @include linebreak-sign-after;
+            margin-top: nth(nth($margin-top-titles, $i), 2);
+            font-size: nth(nth($font-size-titles, $i), 2);
+            font-weight: 600;
+
+            & ~ p {
+                margin-top: .5em;
+            }
+        }
+    }
+
+    li {
+        position: relative;
+        margin-left: 2em;
+        margin-bottom: .65em;
+
+        &::before {
+            position: absolute;
+                top: -.25em; left: -.75em;
+            display: inline-block;
+            box-sizing: border-box;
+            content: '•';
+            color: $color-gray-dark;
+            font-size: 1.4em;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    mark {
+        background-color: rgba($color-orange, .35);
+    }
+
+    strong {
+        font-weight: $font-weight-serif-bold;
+    }
+
+    ul {
+        padding-left: 0;
+        list-style: none;
+    }
+}

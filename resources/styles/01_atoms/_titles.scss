@@ -21,6 +21,7 @@
  * Create a small linebreak sign after the title with a pseudo element
  */
 @mixin linebreak-sign-after() {
+    position: relative;
     line-height: 1;
 
     &::after {
@@ -47,4 +48,16 @@
 @mixin uppercase-hyphens-title() {
     @include uppercase-title();
     @include linebreak-sign-after();
+}
+
+
+/**
+ * Puts the sended content into a rule for all titles
+ */
+@mixin title-tags {
+    @for $i from 2 through 6 {
+        h#{$i} {
+            @content
+        }
+    }
 }

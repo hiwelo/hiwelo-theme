@@ -1,10 +1,10 @@
 {% extends 'generic/layout.twig' %}
 
 {% block content %}
-    <article class="work" data-work-id="{{post.id}}">
+    <article class="work" data-work-id="{{post.id}}" aria-labelledby="a11y_work_{{post.id}}">
         <div class="work__banner page-header__header">
             <header class="work__header page-header__title">
-                <h1 class="work__title">{{post.title}}</h1>
+                <h1 class="work__title" id="a11y_work_{{post.id}}">{{post.title}}</h1>
 
                 {% if previousLink %}
                     <div class="work__previous-link page-header__previous-link">
@@ -42,5 +42,17 @@
                 </dl><!-- .work__infos -->
             </aside><!-- .work__infobox -->
         </div><!-- .work__banner -->
+
+        <div class="work__content global__content">
+            {% if post.thumbnail %}
+                <figure class="work__thumbnail" aria-hidden="true">
+                    <img src="{{post.thumbnail.src}}">
+                </figure><!-- .work__thumbnail -->
+            {% endif %}
+
+            <div class="wp-content">
+                {{post.content}}
+            </div><!-- .content -->
+        </div><!-- .work__content -->
     </article><!-- .work -->
 {% endblock %}
