@@ -25,13 +25,13 @@
                 <dt class="portfolio-item__infos-name">{{__('Owner')}}</dt>
                 <dd class="portfolio-item__infos-value">{{post.get_field('client')}}</dd>
             {% endif %}
-            {% if post.get_field('project_uri') %}
-                <dt class="portfolio-item__infos-name">{{__('Website')}}</dt>
-                <dd class="portfolio-item__infos-value">{{post.get_field('project_uri')}}</dd>
-            {% endif %}
             {% if post.get_field('year') %}
                 <dt class="portfolio-item__infos-name">{{__('Year')}}</dt>
                 <dd class="portfolio-item__infos-value">{{post.get_field('year')}}</dd>
+            {% endif %}
+            {% if post.get_field('project_uri') %}
+                <dt class="portfolio-item__infos-name">{{__('Website')}}</dt>
+                <dd class="portfolio-item__infos-value">{{post.get_field('project_uri')}}</dd>
             {% endif %}
         </dl><!-- .portfolio-item__list -->
     </aside><!-- .portfolio-item__aside -->

@@ -23,9 +23,24 @@ $pages = get_pages([
     'meta_value' => 'archive-' . $post->post_type . '.php',
 ]);
 
+$fields = get_fields();
+
+$infoBoxInfosCounter = 0;
+foreach ($fields as $field => $value) {
+    switch ($field) {
+        case 'client':
+        case 'project_uri':
+        case 'year':
+            $infoBoxInfosCounter++;
+            break;
+    }
+}
+
 $context = Timber::get_context();
 $context['page'] = new TimberPost($pages[0]->ID);
 $context['post'] = new TimberPost($post->ID);
+$context['fields'] = $fields;
+$context['columns'] = $infoBoxInfosCounter;
 $context['previousLink'] = [
     'name' => __($postType->label),
     'href' => get_post_type_archive_link($post->post_type),

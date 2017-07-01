@@ -22,6 +22,8 @@
     }
 
     &__intro {
+        display: flex;
+            align-items: center;
         padding: $padding-block;
         background: $color-brand-primary;
         color: $color-gray-dark;
@@ -31,6 +33,7 @@
         }
 
         @include media-breakpoint-up(lg) {
+            min-height: 25vh;
             background: $color-gray-dark;
             color: $color-gray-lightest;
         }
@@ -84,10 +87,11 @@
         display: flex;
             flex-direction: column;
             justify-content: flex-end;
-        height: 50vh;
+        height: auto;
         margin: 0;
-        min-height: 2.5em;
-        padding: $padding-medium 7.5%;
+        min-height: 35vh;
+        padding: $padding-large;
+        padding-top: $padding-xlarge + $nav-button-complete-size;
         background: $color-gray-lightest;
         color: $color-gray-dark;
         font-size: 10vw;
@@ -118,7 +122,13 @@
         &__title {
             @include uppercase-hyphens-title();
             font-size: 18vw;
+        }
+    }
 
+    .blog &,
+    .portfolio &,
+    .work & {
+        &__title {
             @include media-breakpoint-up(lg) {
                 font-size: 4.5vw;
             }

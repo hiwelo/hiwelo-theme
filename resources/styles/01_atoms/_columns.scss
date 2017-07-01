@@ -1,0 +1,16 @@
+/**
+ * Columns system based on data attributes
+ *
+ * This file contains the CSS design for generic images in this project
+ */
+
+
+@for $i from 2 through 10 {
+    [data-columns="#{$i}"] {
+        columns: $i;
+    }
+}
+
+[data-columns-break] {
+    break-after: column;
+}
