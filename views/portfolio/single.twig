@@ -1,0 +1,58 @@
+{% extends 'generic/layout.twig' %}
+
+{% block content %}
+    <article class="work" data-work-id="{{post.id}}" aria-labelledby="a11y_work_{{post.id}}">
+        <div class="work__banner page-header__header">
+            <header class="work__header page-header__title">
+                <h1 class="work__title" id="a11y_work_{{post.id}}">{{post.title}}</h1>
+
+                {% if previousLink %}
+                    <div class="work__previous-link page-header__previous-link">
+                        <a href="{{previousLink.href}}" title="{{__('Go back to ') ~ previousLink.name}}"><span class="sr-only">{{previousLink.name}}</span></a>
+                    </div>
+                {% endif %}
+            </header><!-- .work__header -->
+
+            <aside class="work-infobox page-header__intro">
+                {% if post.terms %}
+                    <div class="work-infobox__categories">
+                        <h1 class="work-infobox__title" id="a11y_categoriesTitle">{{__('Categories')}}</h1>
+                        <ul class="work-terms work-infobox__terms" aria-labelledby="a11y_categoriesTitle">
+                            {% for item in post.terms %}
+                                <li class="work-terms__item">
+                                    <a href="{{item.link}}">{{item.title}}</a>
+                                </li>
+                            {% endfor %}
+                        </ul><!-- .work__categories -->
+                    </div>
+                {% endif %}
+                <dl class="work-infobox__infos" {% if columns %}data-columns="{{columns}}"{% endif %}>
+                    <dt class="work-infobox__label">{{__('Client')}}</dt>
+                    <dd class="work-infobox__value">{{fields.client}}</dd>
+                    <dt class="work-infobox__label">{{__('Year')}}</dt>
+                    <dd class="work-infobox__value">{{fields.year}}</dd>
+                    <dt class="work-infobox__label">{{__('Website')}}</dt>
+                    <dd class="work-infobox__value">
+                        {% if fields.project_uri %}
+                            <a href="{{fields.project_uri}}" target="__blank">{{__('Explore')}} <span>{{__('the project')}}</span></a>
+                        {% else %}
+                            {{__('Internal')}}
+                        {% endif %}
+                    </dd><!-- .work-infobox__value -->
+                </dl><!-- .work__infos -->
+            </aside><!-- .work__infobox -->
+        </div><!-- .work__banner -->
+
+        <div class="work__content global__content">
+            {% if post.thumbnail %}
+                <figure class="work__thumbnail" aria-hidden="true">
+                    <img src="{{post.thumbnail.src}}">
+                </figure><!-- .work__thumbnail -->
+            {% endif %}
+
+            <div class="wp-content">
+                {{post.content}}
+            </div><!-- .content -->
+        </div><!-- .work__content -->
+    </article><!-- .work -->
+{% endblock %}

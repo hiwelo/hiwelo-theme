@@ -12,24 +12,46 @@
 $font-family-sans-serif:    system, -apple-system, ".SFNSText-Regular",
                             "San Francisco", "Roboto", "Segoe UI",
                             "Helvetica Neue", "Lucida Grande", sans-serif;
-$font-family-title:         "Montserrat", $font-family-sans-serif;
-$font-family-serif:         "Georgia", $font-family-sans-serif;
-$font-family-condensed:     "Open Sans Condensed", $font-family-sans-serif;
+$font-family-serif:         Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-condensed:     Open Sans Condensed, $font-family-sans-serif;
 $font-family-base:          $font-family-sans-serif;
+$font-family-title:         Montserrat, $font-family-sans-serif;
+$font-family-labeur:        "Roboto Slab", $font-family-serif;
+$font-family-labeur-italic: $font-family-serif;
 
 $font-size-base:            1.6rem;
 $font-size-lg:              2rem;
 $font-size-sm:              1.4rem;
 $font-size-xs:              1.2rem;
 $font-size-h1:              4rem;
-$font-size-h2:              3.2rem;
-$font-size-h3:              2.8rem;
+$font-size-h2:              4rem;
+$font-size-h3:              3.2rem;
 $font-size-h4:              2.4rem;
 $font-size-h5:              1.9rem;
 $font-size-h6:              1.6rem;
 
 $font-weight-normal:        400;
 $font-weight-bold:          600;
+$font-weight-title:         800;
+$font-weight-title-invert:  700;
+$font-weight-serif-normal:  300;
+$font-weight-serif-bold:    400;
+
+$title-color:               $color-gray-dark;
+
+$font-size-titles: (
+    h1: 4rem,
+    h2: 3.2rem,
+    h3: 2.4rem,
+    h4: 1.9rem,
+);
+
+$margin-top-titles: (
+    h1: 1.35em,
+    h2: 1.65em,
+    h3: 1.25em,
+    h4: 1.65em,
+);
 
 
 //
@@ -37,7 +59,7 @@ $font-weight-bold:          600;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Raleway:800');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&subset=latin-ext');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400');
 //
 // Utilities rules
 
@@ -63,5 +85,6 @@ h3,
 h4,
 h5,
 h6 {
+    color: $title-color;
     font-family: $font-family-title;
 }

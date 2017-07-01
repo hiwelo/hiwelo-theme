@@ -1,0 +1,138 @@
+/**
+ * Portfolio single content informations box component SCSS
+ *
+ * Component root selector: .work-infobox
+ */
+
+
+.work-infobox {
+    & {
+        display: flex;
+        padding: $padding-xlarge;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+
+        @include media-breakpoint-up(md) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__label,
+    &__title {
+        margin-bottom: .25em;
+        font-family: $font-family-base;
+        font-size: .85em;
+        font-variant: small-caps;
+        font-weight: $font-weight-normal;
+        opacity: .75;
+
+        @include media-breakpoint-up(lg) {
+            float: left;
+            padding-top: .15em;
+            width: 30%;
+            text-align: right;
+        }
+    }
+
+    &__terms,
+    &__value {
+        @include media-breakpoint-up(lg) {
+            padding-left: 40%;
+        }
+    }
+
+    &__categories {
+        margin-bottom: $margin-large;
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 0;
+            width: 25%;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-bottom: $margin-small;
+            width: 100%;
+        }
+    }
+
+    &__infos {
+        text-align: center;
+        flex: 1;
+
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
+
+        @include media-breakpoint-only(md) {
+            padding-left: $padding-medium;
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include clearfix;
+            flex: initial;
+            columns: initial;
+            width: 100%;
+        }
+    }
+
+    &__terms {
+        @include media-breakpoint-up(lg) {
+            display: block;
+            color: $color-white;
+            flex-direction: column;
+
+            & .work-terms__item {
+                display: block;
+
+                &::after {
+                    content: none !important;
+                }
+            }
+        }
+    }
+
+    &__title {
+        text-align: center;
+
+        @include media-breakpoint-down(sm) {
+            @include sr-only;
+        }
+    }
+
+    &__value {
+        break-after: column;
+        hyphens: auto;
+
+        @include media-breakpoint-up(lg) {
+            text-align: left;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: $margin-small;
+        }
+
+        & a {
+            @include media-breakpoint-up(lg) {
+                color: inherit;
+            }
+        }
+
+        & span {
+            @include media-breakpoint-only(xs) {
+                @include sr-only();
+            }
+
+            @include media-breakpoint-up(lg) {
+                @include sr-only();
+            }
+        }
+    }
+}

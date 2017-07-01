@@ -5,12 +5,13 @@
  */
 
 
-.archive .global {
+body:not(.home) .global {
     &__container {
         position: relative;
         display: flex;
             flex-direction: column;
         min-height: 100vh;
+        overflow: hidden;
 
         @include media-breakpoint-up(lg) {
             flex-direction: row;
@@ -22,93 +23,6 @@
             flex: 1;
             height: 100vh;
             overflow-y: scroll;
-        }
-    }
-
-    &__header {
-        @include media-breakpoint-up(lg) {
-            display: flex;
-                flex-direction: column;
-            height: 100vh;
-            min-width: 30rem;
-            width: 25vw;
-        }
-    }
-
-    &__intro {
-        padding: $padding-block;
-        background: $color-brand-primary;
-        color: $color-gray-dark;
-
-        & :last-child {
-            margin-bottom: 0;
-        }
-
-        @include media-breakpoint-up(lg) {
-            background: $color-gray-dark;
-            color: $color-gray-lightest;
-        }
-    }
-
-    &__previous-link {
-        display: none;
-
-        @include media-breakpoint-up(lg) {
-            position: absolute;
-                top: 0; left: 0;
-            display: block;
-            height: 4.4rem;
-            margin: 2.5rem;
-            width: 4.4rem;
-            background-color: $color-white;
-            border-radius: 50%;
-
-            &::before,
-            &::after {
-                position: absolute;
-                    left: calc(50% - .8rem);
-                display: block;
-                height: .2rem;
-                width: 1rem;
-                content: '';
-                background: $color-gray-dark;
-                pointer-events: none;
-            }
-
-            &::before {
-                bottom: 50%;
-                transform: rotate(-45deg) translateX(3px);
-            }
-
-            &::after {
-                top: 50%;
-                transform: rotate(45deg) translateX(3px);
-            }
-
-            a {
-                display: block;
-                height: 100%;
-                width: 100%;
-            }
-        }
-    }
-
-    &__title {
-        @include uppercase-hyphens-title();
-        display: flex;
-            align-items: flex-end;
-        height: 50vh;
-        margin: 0;
-        min-height: 2.5em;
-        padding: $padding-medium 7.5%;
-        background: $color-gray-lightest;
-        color: $color-gray-dark;
-        font-size: 18vw;
-        overflow: hidden;
-
-        @include media-breakpoint-up(lg) {
-            flex: 1;
-            font-size: 4.5vw;
         }
     }
 }
