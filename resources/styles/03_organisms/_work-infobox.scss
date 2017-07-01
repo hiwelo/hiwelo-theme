@@ -1,0 +1,35 @@
+/**
+ * Portfolio single content informations box component SCSS
+ *
+ * Component root selector: .work-infobox
+ */
+
+
+.work-infobox {
+    & {
+        padding: $padding-xlarge;
+    }
+
+    &__infos {
+        @include clearfix;
+    }
+
+    &__label {
+        float: left;
+        padding-right: .65em;
+        font-weight: $font-weight-normal;
+        opacity: .75;
+    }
+
+    &__title {
+        @include sr-only;
+    }
+
+    &__value {
+        text-align: right;
+
+        &:not(:last-child) {
+            margin-bottom: $margin-small;
+        }
+    }
+}

@@ -33,6 +33,12 @@
 
 
 //
+// Molecules specific styles
+
+@import "02_molecules/work-terms";
+
+
+//
 // Organisms specific styles
 
 @import "03_organisms/main-nav";
@@ -40,6 +46,7 @@
 @import "03_organisms/portfolio-header";
 @import "03_organisms/portfolio-item";
 @import "03_organisms/portfolio-summary";
+@import "03_organisms/work-infobox";
 
 
 //

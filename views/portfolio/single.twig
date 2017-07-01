@@ -10,29 +10,31 @@
                 <h1 class="work__title">{{post.title}}</h1>
             </header><!-- .work__header -->
 
-            <aside class="work__infobox page-header__intro">
-                <dl class="work__infos">
-                    {% if post.terms %}
-                        <dt class="work__info work__info--categories">{{__('Categories')}}</dt>
+            <aside class="work-infobox page-header__intro">
+                {% if post.terms %}
+                    <h1 class="work-infobox__title" id="a11y_categoriesTitle">{{__('Categories')}}</h1>
+                    <ul class="work-terms" aria-labelledby="a11y_categoriesTitle">
                         {% for item in post.terms %}
-                            <dd class="work__value work__value--list">
+                            <li class="work-terms__item">
                                 <a href="{{item.link}}">{{item.title}}</a>
-                            </dd><!-- .work__value -->
+                            </li>
                         {% endfor %}
-                    {% endif %}
+                    </ul><!-- .work__categories -->
+                {% endif %}
+                <dl class="work-infobox__infos">
                     {% if post.get_field('client') %}
-                        <dt class="work__info">{{__('Client')}}</dt>
-                        <dd class="work__value">{{post.get_field('client')}}</dd>
+                        <dt class="work-infobox__label">{{__('Client')}}</dt>
+                        <dd class="work-infobox__value">{{post.get_field('client')}}</dd>
                     {% endif %}
                     {% if post.get_field('project_uri') %}
-                        <dt class="work__info">{{__('Website')}}</dt>
-                        <dd class="work__value">
+                        <dt class="work-infobox__label">{{__('Website')}}</dt>
+                        <dd class="work-infobox__value">
                             <a href="{{post.get_field('project_uri')}}">See the project</a>
-                        </dd><!-- .work__value -->
+                        </dd><!-- .work-infobox__value -->
                     {% endif %}
                     {% if post.get_field('year') %}
-                        <dt class="work__info">{{__('Year')}}</dt>
-                        <dd class="work__value">{{post.get_field('year')}}</dd>
+                        <dt class="work-infobox__label">{{__('Year')}}</dt>
+                        <dd class="work-infobox__value">{{post.get_field('year')}}</dd>
                     {% endif %}
                 </dl><!-- .work__infos -->
             </aside><!-- .work__infobox -->
