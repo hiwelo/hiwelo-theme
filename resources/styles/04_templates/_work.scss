@@ -45,6 +45,6 @@
         @include uppercase-hyphens-title();
         margin: 0;
         font-size: inherit;
-        hyphens: manual;
+        hyphens: auto;
     }
 }

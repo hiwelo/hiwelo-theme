@@ -19,8 +19,8 @@ use Timber\Post as TimberPost;
 
 // gets Post Type object and add a title containing the label of the post type
 $pages = get_pages([
-    'meta_key' => '_wp_page_template',
-    'meta_value' => basename(__FILE__),
+    'meta_key' => 'target_post_type',
+    'meta_value' => 'portfolio',
 ]);
 
 $context = Timber::get_context();
