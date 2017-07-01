@@ -1,8 +1,55 @@
+{% set itemBackground = post.get_field('background_color') %}
+{% set itemColor = post.get_field('color') %}
+
 {% extends 'generic/layout.twig' %}
 
-{% block mainClasses %}portfolio{% endblock %}
-
 {% block content %}
-    {% include 'generic/page-header.twig' %}
-    {% include 'portfolio/item.twig' %}
+    <article class="work" data-work-id="{{post.id}}">
+        <div class="work__banner page-header__header">
+            <header class="work__header page-header__title">
+                <h1 class="work__title">{{post.title}}</h1>
+            </header><!-- .work__header -->
+
+            <aside class="work__infobox page-header__intro">
+                <dl class="work__infos">
+                    {% if post.terms %}
+                        <dt class="work__info work__info--categories">{{__('Categories')}}</dt>
+                        {% for item in post.terms %}
+                            <dd class="work__value work__value--list">
+                                <a href="{{item.link}}">{{item.title}}</a>
+                            </dd><!-- .work__value -->
+                        {% endfor %}
+                    {% endif %}
+                    {% if post.get_field('client') %}
+                        <dt class="work__info">{{__('Client')}}</dt>
+                        <dd class="work__value">{{post.get_field('client')}}</dd>
+                    {% endif %}
+                    {% if post.get_field('project_uri') %}
+                        <dt class="work__info">{{__('Website')}}</dt>
+                        <dd class="work__value">
+                            <a href="{{post.get_field('project_uri')}}">See the project</a>
+                        </dd><!-- .work__value -->
+                    {% endif %}
+                    {% if post.get_field('year') %}
+                        <dt class="work__info">{{__('Year')}}</dt>
+                        <dd class="work__value">{{post.get_field('year')}}</dd>
+                    {% endif %}
+                </dl><!-- .work__infos -->
+            </aside><!-- .work__infobox -->
+        </div><!-- .work__banner -->
+    </article><!-- .work -->
+    {% if itemBackground %}
+        <style>
+            [data-work-id="{{post.id}}"] [data-custom-background] {
+                background-color: {{itemBackground}};
+            }
+        </style>
+    {% endif %}
+    {% if itemColor %}
+        <style>
+            [data-work-id="{{post.id}}"] [data-custom-color] {
+                color: {{itemColor}};
+            }
+        </style>
+    {% endif %}
 {% endblock %}

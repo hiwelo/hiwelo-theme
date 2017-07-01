@@ -1,0 +1,49 @@
+/**
+ * Portfolio single content SCSS
+ *
+ * Component root selector: .work
+ */
+
+
+.work {
+    &__info,
+    &__value {
+        margin-top: $margin-medium;
+
+        &:first-of-type() {
+            margin-top: 0;
+        }
+    }
+
+    &__header {
+        height: auto;
+        min-height: 35vh;
+        padding: $padding-xlarge;
+        padding-top: $padding-xlarge + $nav-button-complete-size;
+    }
+
+    &__infobox {
+        padding: $padding-xlarge;
+    }
+
+    &__info {
+        float: left;
+        clear: left;
+    }
+
+    &__title {
+        @include uppercase-hyphens-title();
+        margin: 0;
+        font-size: 12vw;
+    }
+
+    &__value {
+        margin-bottom: 0;
+        text-align: right;
+
+        &:first-of-type(),
+        & + & {
+            margin-top: 0;
+        }
+    }
+}

@@ -1,8 +1,14 @@
-<article class="portfolio-item">
+{% set itemBackground = post.get_field('background_color') %}
+{% set itemColor = post.get_field('color') %}
+<article class="portfolio-item" data-portfolio-item="{{post.id}}">
     <figure class="portfolio-item__thumbnail">
-
+        <img src="{{post.thumbnail.src}}" alt="Illustration of my work {{post.get_field('client')}}">
+        <figcaption class="sr-only">{{__('Work illustration')}}</figcaption>
     </figure><!-- .portfolio-item__thumbnail -->
-    <header class="portfolio-item__header">
+
+    <header class="portfolio-item__header"
+        {% if itemBackground %}data-custom-background{% endif %}
+        {% if itemColor %}data-custom-color{% endif %}>
         <h1 class="portfolio-item__title">{{post.title}}</h1>
         {% if post.terms %}
             <ul class="portfolio-item__categories">
@@ -11,7 +17,6 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <p class="portfolio-item__excerpt">{{post.post_excerpt}}</p>
     </header><!-- .portfolio-item__header -->
 
     <aside class="portfolio-item__aside">
@@ -35,3 +40,12 @@
         {{post.content}}
     </div><!-- .portfolio-item__content -->
 </article><!-- .portfolio-item -->
+<style>
+    [data-portfolio-item="{{post.id}}"] [data-custom-background] {
+        background-color: {{itemBackground}};
+    }
+
+    [data-portfolio-item="{{post.id}}"] [data-custom-color] {
+        color: {{itemColor}};
+    }
+</style>

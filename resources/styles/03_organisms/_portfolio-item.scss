@@ -10,7 +10,124 @@
 
 
 .portfolio-item {
-    padding: $padding-large;
+    & {
+        padding: $padding-large;
+    }
+
+    &__categories {
+        display: flex;
+            justify-content: center;
+        margin: 0;
+        padding: 0;
+        color: $color-gray;
+        font-size: .85em;
+        list-style: none;
+
+        [data-custom-color] & {
+            color: inherit;
+        }
+    }
+
+    &__category {
+        padding: 0;
+        color: inherit;
+        text-transform: capitalize;
+
+        &:not(:first-child)::before {
+            display: inline-block;
+            padding: 0 .25em;
+            content: '+';
+            color: inherit;
+            font-family: $font-family-title;
+            font-weight: 400;
+            line-height: inherit;
+            opacity: .65;
+
+            @include media-breakpoint-only(md) {
+                color: $color-brand-primary;
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+        margin: $margin-xlarge auto;
+        padding: $padding-large;
+        background-color: $color-brand-primary;
+        color: $color-brand-inverse-a11y;
+        overflow: hidden;
+    }
+
+    &__thumbnail {
+        margin-bottom: $margin-xlarge;
+
+        figcaption {
+            @include sr-only();
+        }
+    }
+
+    &__title {
+        @include uppercase-hyphens-title();
+        margin-bottom: $margin-medium;
+        font-weight: $font-weight-title;
+        text-align: center;
+    }
+}
+
+
+/**
+ * Specific rules for the md breakpoint
+ */
+
+@include media-breakpoint-only(md) {
+    .portfolio-item {
+        & {
+            display: flex;
+                flex-wrap: wrap;
+        }
+
+        &__category,
+        &__title {
+            color: $title-color;
+        }
+
+        &__header,
+        &__thumbnail {
+            width: 50%;
+        }
+
+        &__aside {
+            width: 100%
+        }
+
+        &__categories {
+            justify-content: flex-end;
+        }
+
+        &__content {
+            width: 100%;
+        }
+
+        &__header {
+            order: -1;
+            padding: $padding-large;
+            padding-right: $padding-large * 2;
+            background-color: transparent !important;
+            text-align: right;
+        }
+
+        &__thumbnail {
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        &__title {
+            text-align: right;
+        }
+    }
 }
 
 
