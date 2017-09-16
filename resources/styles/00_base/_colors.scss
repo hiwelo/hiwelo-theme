@@ -24,7 +24,7 @@ $color-dribbble:                #ea4c89;
 $color-flickr:                  #ff0084;
 $color-instagram:               #405de6;
 $color-linkedin:                #0077b5;
-$color-speakerdeck:             #396;
+$color-speakerdeck:             #613d7c;
 $color-lanyrd:                  #214679;
 
 
@@ -39,7 +39,7 @@ $color-orange:                  #f0ad4e !default;
 $color-yellow:                  #ffd500 !default;
 $color-green:                   #5cb85c !default;
 $color-blue:                    #0275d8 !default;
-$color-teal:                    #5bc0de !default;
+$color-teal:                    #309292 !default;
 $color-pink:                    #ff5b77 !default;
 $color-purple:                  #613d7c !default;
 
@@ -53,9 +53,9 @@ $color-gray-lightest:           lighten($color-gray-lighter, 10%) !default;
 //
 // 3. Project variables
 
-$color-brand-primary:           $color-yellow !default;
+$color-brand-primary:           $color-teal !default;
 $color-brand-a11y:              $color-dark-cerulean !default;
-$color-brand-inverse-a11y:      $color-black !default;
+$color-brand-inverse-a11y:      $color-white !default;
 $color-success:                 $color-green !default;
 $color-info:                    $color-teal !default;
 $color-warning:                 $color-orange !default;
