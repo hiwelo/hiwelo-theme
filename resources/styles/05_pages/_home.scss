@@ -49,11 +49,22 @@ $home-body-padding: $size-xxxxlarge-plus;
                 }
             }
 
+            &[href^="https://www.fairphone.com"] {
+                &:focus,
+                &:hover {
+                    color: $color-black;
+
+                    &:before {
+                        background: $color-fairphone;
+                    }
+                }
+            }
+
             &[href^="https://vc4a.com"],
             &[href^="https://services.vc4a.com"] {
                 &:focus,
                 &:hover {
-                    color: $color-white;
+                    color: $color-black;
 
                     &:before {
                         background: $color-vc4a;
